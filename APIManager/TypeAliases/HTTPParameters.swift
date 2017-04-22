@@ -6,4 +6,5 @@
 //  Copyright © 2017 rauhul. All rights reserved.
 //
 
-import Foundation
+/// 
+public typealias HTTPParameters = [String: String]

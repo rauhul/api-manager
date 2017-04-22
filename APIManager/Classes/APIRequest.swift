@@ -1,5 +1,5 @@
 //
-//  APIManager.swift
+//  APIRequest.swift
 //  APIManager
 //
 //  Created by Rauhul Varma on 4/21/17.
