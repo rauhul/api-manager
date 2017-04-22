@@ -1,2 +1,2 @@
 # api-manager
-Pod for abstracting restful api requests easy  
+Pod for abstracting restful api requests  
