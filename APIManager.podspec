@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "APIManager"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "RESTful API Manager"
 
   s.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.author       = { "Rauhul Varma" => "acm@illinois.edu" }
+  s.author       = "Rauhul Varma"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.platform     = :ios, "10.0"
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.source_files  = "APIManager/Classes/**/*.{swift}", "APIManager/Protocols/**/*.{swift}", "APIManager/TypeAliases/**/*.{swift}"
+  s.source_files  = "APIManager/Classes/**/*.{swift}", "APIManager/Protocols/**/*.{swift}", "APIManager/Typealiases/**/*.{swift}", "APIManager/Enums/**/*.{swift}"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 

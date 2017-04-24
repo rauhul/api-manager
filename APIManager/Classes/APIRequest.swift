@@ -11,11 +11,11 @@ import Foundation
 /**
     Base class for creating APIRequests.
     
-    - note: `APIRequests` must be created through a class that conforms to `Service`.
+    - note: `APIRequests` should be created through a class that conforms to `Service`.
  */
 open class APIRequest<Service: APIService> {
     
-    // MARK: - Types
+    // MARK: - Types & Aliases
     /// Enumeration of the HTTP methods supported by APIRequest.
     public enum HTTPMethod: String {
         /// The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
@@ -139,7 +139,7 @@ open class APIRequest<Service: APIService> {
             }
             
             if let response = response as? HTTPURLResponse, let data = data {
-                if (200..<300).contains(response.statusCode) {
+                if !(200..<300).contains(response.statusCode) {
                     self.failure?(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))
                     return
                 }
@@ -172,9 +172,9 @@ open class APIRequest<Service: APIService> {
              - body:         An optional json body for the HTTP Request.
              - method:       The method for the HTTP Request.
              
-         - note: Only to be used by a class that conforms to Request
+         - note: Only to be used by a class that conforms to APIService
      */
-    internal init(endpoint: String, params: HTTPParameters?, body: JSON?, method: APIRequest.HTTPMethod) {
+    public init(endpoint: String, params: HTTPParameters?, body: JSON?, method: APIRequest.HTTPMethod) {
         self.endpoint = endpoint
         self.body = body
         self.params = params
@@ -182,16 +182,24 @@ open class APIRequest<Service: APIService> {
     }
     
     // MARK: - Callback Setters
-    // - success:      An optional callback on a successful HTTP Request.
-    // - failure:      An optional callback on a successful HTTP Request.
-    // TODO: Document
+    /**
+        Sets the callback on a successful `APIRequest`, called with the json response.
+        
+        - parameters:
+            - success: The block to be called on a successful request.
+     */
     @discardableResult
     open func onSuccess(_ success: Success?) -> APIRequest {
         self.success = success
         return self
     }
     
-    // TODO: Document
+    /**
+        Sets the callback on a failed `APIRequest`, called with the json response.
+     
+        - parameters:
+            - failure: The block to be called on a failed request.
+     */
     @discardableResult
     open func onFailure(_ failure: Failure?) -> APIRequest {
         self.failure = failure

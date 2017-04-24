@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9523B0191EAE9A20009A0471 /* JSONValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9523B0181EAE9A20009A0471 /* JSONValidationResult.swift */; };
 		95A131641EAAAE22001CFC97 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A131631EAAAE22001CFC97 /* HTTPHeaders.swift */; };
 		95BF046B1EA9EEAB005536D0 /* APIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BF04691EA9EEAB005536D0 /* APIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95EEC4E81EAA894000E581D9 /* APIAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EEC4E21EAA894000E581D9 /* APIAuthorization.swift */; };
@@ -17,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9523B0181EAE9A20009A0471 /* JSONValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONValidationResult.swift; path = APIManager/Enums/JSONValidationResult.swift; sourceTree = SOURCE_ROOT; };
+		9523B01B1EAE9AF9009A0471 /* APIManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APIManager.podspec; sourceTree = "<group>"; };
+		9523B01D1EAE9AFE009A0471 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9523B01E1EAE9AFE009A0471 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		95A131631EAAAE22001CFC97 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
 		95BF04661EA9EEAB005536D0 /* APIManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BF04691EA9EEAB005536D0 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
@@ -39,9 +44,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9523B01A1EAE9A25009A0471 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9523B0181EAE9A20009A0471 /* JSONValidationResult.swift */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
 		95BF045C1EA9EEAB005536D0 = {
 			isa = PBXGroup;
 			children = (
+				9523B01D1EAE9AFE009A0471 /* LICENSE */,
+				9523B01E1EAE9AFE009A0471 /* README.md */,
+				9523B01B1EAE9AF9009A0471 /* APIManager.podspec */,
 				95BF04681EA9EEAB005536D0 /* APIManager */,
 				95BF04671EA9EEAB005536D0 /* Products */,
 			);
@@ -61,19 +77,21 @@
 				95BF04691EA9EEAB005536D0 /* APIManager.h */,
 				95BF046A1EA9EEAB005536D0 /* Info.plist */,
 				95EEC4E41EAA894000E581D9 /* Classes */,
+				9523B01A1EAE9A25009A0471 /* Enums */,
 				95EEC4E11EAA894000E581D9 /* Protocols */,
-				95EEC4DE1EAA894000E581D9 /* TypeAliases */,
+				95EEC4DE1EAA894000E581D9 /* Typealiases */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
 		};
-		95EEC4DE1EAA894000E581D9 /* TypeAliases */ = {
+		95EEC4DE1EAA894000E581D9 /* Typealiases */ = {
 			isa = PBXGroup;
 			children = (
 				95EEC4EB1EAAA68D00E581D9 /* HTTPParameters.swift */,
 				95EEC4ED1EAAA6C800E581D9 /* JSON.swift */,
 				95A131631EAAAE22001CFC97 /* HTTPHeaders.swift */,
 			);
+			name = Typealiases;
 			path = TypeAliases;
 			sourceTree = "<group>";
 		};
@@ -179,6 +197,7 @@
 				95EEC4EA1EAA894000E581D9 /* APIRequest.swift in Sources */,
 				95EEC4EC1EAAA68D00E581D9 /* HTTPParameters.swift in Sources */,
 				95EEC4E91EAA894000E581D9 /* APIService.swift in Sources */,
+				9523B0191EAE9A20009A0471 /* JSONValidationResult.swift in Sources */,
 				95EEC4EE1EAAA6C800E581D9 /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,40 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/rauhul/Developer/api-manager/APIManager/Enums/JSONValidationResult.swift",
+      "line": 10,
+      "symbol": "JSONValidationResult",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rauhul/Developer/api-manager/APIManager/Enums/JSONValidationResult.swift",
+      "line": 14,
+      "symbol": "JSONValidationResult.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rauhul/Developer/api-manager/APIManager/Enums/JSONValidationResult.swift",
+      "line": 18,
+      "symbol": "JSONValidationResult.failure",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rauhul/Developer/api-manager/APIManager/Protocols/APIAuthorization.swift",
+      "line": 15,
+      "symbol": "APIAuthorization.embedInto(request:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rauhul/Developer/api-manager/APIManager/Protocols/APIService.swift",
+      "line": 51,
+      "symbol": "APIService.validate(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/rauhul/Developer/api-manager"
+}
