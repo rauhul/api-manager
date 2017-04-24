@@ -26,7 +26,7 @@ public protocol APIService {
     /**
         The base URL for this `APIService`.
      
-        Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service commuunicates with.
+        Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service communicates with.
      
         A baseURL might look like: ```https://api.example.com``` with endpoints like: ```/users``` or ```/schedule```
      
