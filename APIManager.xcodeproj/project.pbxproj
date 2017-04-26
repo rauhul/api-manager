@@ -26,6 +26,7 @@
 		95BF04661EA9EEAB005536D0 /* APIManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BF04691EA9EEAB005536D0 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		95BF046A1EA9EEAB005536D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95D158AA1EB1008700008F35 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		95EEC4E21EAA894000E581D9 /* APIAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAuthorization.swift; sourceTree = "<group>"; };
 		95EEC4E31EAA894000E581D9 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		95EEC4E51EAA894000E581D9 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		95BF045C1EA9EEAB005536D0 = {
 			isa = PBXGroup;
 			children = (
+				95D158AA1EB1008700008F35 /* Package.swift */,
 				9523B01D1EAE9AFE009A0471 /* LICENSE */,
 				9523B01E1EAE9AFE009A0471 /* README.md */,
 				9523B01B1EAE9AF9009A0471 /* APIManager.podspec */,

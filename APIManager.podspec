@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "APIManager"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "RESTful API Manager"
 
   s.description  = <<-DESC
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.source_files  = "APIManager/Classes/**/*.{swift}", "APIManager/Protocols/**/*.{swift}", "APIManager/Typealiases/**/*.{swift}", "APIManager/Enums/**/*.{swift}"
+  s.source_files  = "Sources/APIManager/**/*.{swift}",
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
