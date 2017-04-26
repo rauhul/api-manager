@@ -87,8 +87,6 @@
 <li>Swift 3.0+</li>
 </ul>
 <a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
-
-<p>APIManager currently only supports CocoaPods.</p>
 <a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>CocoaPods</h3>
 
 <p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
@@ -111,6 +109,15 @@
 
 <p>Then, run the following command:</p>
 <pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+<a href='#swift-package-manager' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='swift-package-manager'>Swift Package Manager</h3>
+
+<p>The <a href="https://swift.org/package-manager/">Swift Package Manager</a> is a tool for automating the distribution of Swift code and is integrated into the <code>swift</code> compiler. </p>
+
+<p>Once you have your Swift package set up, adding APIManager as a dependency is as easy as adding it to the <code>dependencies</code> value of your <code>Package.swift</code>.</p>
+<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/rauhul/api-manager.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">]</span>
 </code></pre>
 <a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
 
