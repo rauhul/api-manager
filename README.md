@@ -12,8 +12,6 @@ APIManager is a framework for abstracting RESTful API requests.
 
 ## Installation
 
-APIManager currently only supports CocoaPods.
-
 
 ### CocoaPods
 
@@ -41,6 +39,19 @@ Then, run the following command:
 
 ```bash
 $ pod install
+```
+
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+Once you have your Swift package set up, adding APIManager as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .Package(url: "https://github.com/rauhul/api-manager.git", majorVersion: 0)
+]
 ```
 
 
