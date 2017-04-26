@@ -32,6 +32,7 @@
 		95D158B51EB104EB00008F35 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
 		95D158B61EB104EB00008F35 /* HTTPParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPParameters.swift; sourceTree = "<group>"; };
 		95D158B71EB104EB00008F35 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		95D158BF1EB109D200008F35 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +51,7 @@
 			children = (
 				9523B01D1EAE9AFE009A0471 /* LICENSE */,
 				9523B01E1EAE9AFE009A0471 /* README.md */,
+				95D158BF1EB109D200008F35 /* CHANGELOG.md */,
 				9523B01B1EAE9AF9009A0471 /* APIManager.podspec */,
 				95D158AA1EB1008700008F35 /* Package.swift */,
 				95BF04681EA9EEAB005536D0 /* APIManager */,
