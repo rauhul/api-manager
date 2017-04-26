@@ -31,7 +31,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'APIManager', '~> 0.0.2'
+    pod 'APIManager', '~> 0.0.4'
 end
 ```
 
