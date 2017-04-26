@@ -3,5 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "APIManager"
+    name: "APIManager",
+    dependencies : [],
+    exclude: ["Tests"]
 )

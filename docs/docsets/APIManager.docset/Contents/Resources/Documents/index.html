@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>APIManager  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="APIManager  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">APIManager Docs</a> (85% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">APIManager Reference</a>
+        <img id="carat" src="img/carat.png" />
+        APIManager  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/APIRequest.html">APIRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/APIRequest/HTTPMethod.html">– HTTPMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/JSONValidationResult.html">JSONValidationResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/APIAuthorization.html">APIAuthorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/APIService.html">APIService</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:10APIManager11HTTPHeaders">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:10APIManager14HTTPParameters">HTTPParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:10APIManager4JSON">JSON</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#api-manager' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='api-manager'>api-manager</h1>
+
+<p>APIManager is a framework for abstracting RESTful API requests.</p>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<ul>
+<li>iOS 10.0+</li>
+<li>Xcode 8.0+</li>
+<li>Swift 3.0+</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+
+<p>APIManager currently only supports CocoaPods.</p>
+<a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>CocoaPods</h3>
+
+<p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
+</code></pre>
+
+<blockquote>
+<p>CocoaPods 1.0.0+ is required to build APIManager.</p>
+</blockquote>
+
+<p>To integrate APIManager into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+<span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'10.0'</span>
+<span class="n">use_frameworks!</span>
+
+<span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">'APIManager'</span><span class="p">,</span> <span class="s1">'~&gt; 0.0.2'</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Then, run the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+
+<p>APIManager relies on users to create <code>APIServices</code> relevent to the RESTful APIs they are working with.</p>
+<a href='#making-an-apiservice' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='making-an-apiservice'>Making an APIService</h3>
+
+<p>An APIService is made up of 4 components.</p>
+
+<ol>
+<li>A <code>baseURL</code>. Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service communicates with.</li>
+</ol>
+<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"https://api.example.com"</span>
+<span class="p">}</span>
+</code></pre>
+
+<ol>
+<li><code>HTTPHeaders</code> to be sent alongside the <code>APIRequest</code>s made by the endpoints in your <code>APIService</code>.</li>
+</ol>
+<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre>
+
+<ol>
+<li>A validation function <code>validate(json: JSON) -&gt; JSONValidationResult</code>. This method provides a point outside of <code>APIRequest</code> for your service to validate the response json from a RESTful request. This validation should be common accross all endpoints in the service. If no validation is required, simply return <code>.success</code>.</li>
+</ol>
+<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">validate</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JSONValidationResult</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s">"error"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span>   
+
+    <span class="k">if</span> <span class="n">json</span><span class="p">[</span><span class="s">"data"</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">.</span><span class="n">success</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="s">"No data nor error returned."</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<ol>
+<li>A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the <code>APIRequest</code> constructor that can take in data (as <code>HTTPParameters</code> and/or <code>JSON</code>). For example if you would like to get some user information by id the endpoint may look like this:</li>
+</ol>
+<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getUser</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">GrootMerchService</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ExampleService</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">endpoint</span><span class="p">:</span> <span class="s">"/users"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">id</span><span class="p">],</span> <span class="nv">body</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="kt">GET</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre>
+
+<blockquote>
+<p>Please look at <a href="https://github.com/acm-uiuc/groot-swift">acm-uiuc/groot-swift</a> for a more detailed example of an <code>APIService</code></p>
+</blockquote>
+<a href='#using-an-apiservice' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='using-an-apiservice'>Using an APIService</h3>
+
+<p>Now that you have an <code>APIService</code>, you can use it make RESTful API Requests. </p>
+
+<p>All the RESTful API endpoints we need to access should already be defined in our <code>APIService</code>, so using them is simply a matter of calling them.</p>
+
+<p>Using the example service above, we can make a request to get the User associated with the id 452398:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">ExampleService</span><span class="o">.</span><span class="nf">getUser</span><span class="p">(</span><span class="nv">byId</span><span class="p">:</span> <span class="mi">452398</span><span class="p">)</span>
+</code></pre>
+
+<p>And subsecquently perform the <code>APIRequest</code> with:</p>
+<pre class="highlight swift"><code><span class="n">request</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="nv">withAuthorization</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre>
+
+<p>However, this leaves us unable to access the json response or error as well as requires multiple lines to do what is really one action. Conveniently <code>APIManager</code> allows us to solve this problems with simple chaining syntax. We can specify both success and failure blocks to be called with the response json (validated by our APIService) and error respectively. We can perform the request in the same statement as seen below:</p>
+<pre class="highlight swift"><code><span class="kt">ExampleService</span><span class="o">.</span><span class="nf">getUser</span><span class="p">(</span><span class="nv">byId</span><span class="p">:</span> <span class="mi">452398</span><span class="p">)</span>
+<span class="o">.</span><span class="n">onSuccess</span> <span class="p">{</span> <span class="p">(</span><span class="n">json</span><span class="p">)</span> <span class="k">in</span>
+    <span class="c1">// Handle Success (Background thread)</span>
+    <span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+        <span class="c1">// Handle Success (main thread)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">onFailure</span> <span class="p">{</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="c1">// Handle Failure (Background thread)</span>
+    <span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+        <span class="c1">// Handle Failure (main thread)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="nv">withAuthorization</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre>
+<a href='#support' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='support'>Support</h2>
+
+<p>Please <a href="https://github.com/rauhul/api-manager/issues/new">open an issue</a> for support.</p>
+<a href='#contributing' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contributing'>Contributing</h2>
+
+<p>Please contribute using <a href="https://guides.github.com/introduction/flow/">Github Flow</a>. Create a branch, add commits, and <a href="https://github.com/rauhul/api-manager/compare/">open a pull request</a>.</p>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+
+<p>This project is licensed under the MIT License. For a full copy of this license take a look at the LICENSE file.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2017-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
