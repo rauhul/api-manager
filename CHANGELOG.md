@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.0.5](https://github.com/rauhul/api-manager/releases/tag/0.0.5)
+Released on 2017-04-27.
+
+#### Added
+- tvOS support
+
 
 ## [0.0.4](https://github.com/rauhul/api-manager/releases/tag/0.0.4)
 Released on 2017-04-26.
