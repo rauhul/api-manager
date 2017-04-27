@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "APIManager"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "RESTful API Manager"
 
   s.description  = <<-DESC
@@ -21,7 +21,9 @@ Pod::Spec.new do |s|
   s.author       = "Rauhul Varma"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.platform     = :ios, "10.0"
+
+  s.ios.deployment_target  = "10.0"
+  s.tvos.deployment_target = "10.0"
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
