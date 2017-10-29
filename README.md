@@ -5,9 +5,9 @@ APIManager is a framework for abstracting RESTful API requests.
 
 ## Requirements
 
-- iOS 10.0+ 
-- Xcode 8.0+
-- Swift 3.0+
+- iOS 11.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 
 ## Installation
@@ -31,7 +31,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'APIManager', '~> 0.0.4'
+    pod 'APIManager', '~> 0.1.0'
 end
 ```
 
