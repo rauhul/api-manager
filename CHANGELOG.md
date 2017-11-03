@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.0](https://github.com/rauhul/api-manager/releases/tag/0.1.0)
+Released on 2017-10-2.
+
+#### Added
+- Swift 4.0 Support
+- Native object as return types for APIRequests
+
+#### Removed
+- JSON (alised to [String: Any]) as the default return type for APIRequests
+
+
 ## [0.0.5](https://github.com/rauhul/api-manager/releases/tag/0.0.5)
 Released on 2017-04-27.
 
