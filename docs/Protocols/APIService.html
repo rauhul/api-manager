@@ -14,7 +14,7 @@
     <a title="APIService Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">APIManager Docs</a> (85% documented)</p>
+        <p><a href="../index.html">APIManager Docs</a> (90% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -39,18 +39,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Enums.html">Enums</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/JSONValidationResult.html">JSONValidationResult</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/APIReturnable.html">APIReturnable</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/APIService.html">APIService</a>
@@ -58,16 +53,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Typealiases.html">Typealiases</a>
+            <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:10APIManager11HTTPHeaders">HTTPHeaders</a>
+                <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:10APIManager14HTTPParameters">HTTPParameters</a>
+                <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:10APIManager4JSON">JSON</a>
+                <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
               </li>
             </ul>
           </li>
@@ -88,7 +83,6 @@
 <p>A class that conforms to APIService should also define all the endpoints relevent to that service.</p>
 
 <p>An endpoint might look like:</p>
-
 <pre class="highlight plaintext"><code>open class func getUser(byId id: String) -&gt; APIRequest&lt;MyService&gt; {
     return APIRequest&lt;MyService&gt;(endpoint: "/users", params: nil, body: ["id": id], method: .GET)
 }
@@ -101,9 +95,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvP10APIManager10APIService7baseURLSS"></a>
+                    <a name="/s:10APIManager10APIServiceP7baseURLSSvZ"></a>
                     <a name="//apple_ref/swift/Variable/baseURL" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvP10APIManager10APIService7baseURLSS">baseURL</a>
+                    <a class="token" href="#/s:10APIManager10APIServiceP7baseURLSSvZ">baseURL</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -118,7 +112,6 @@
 <p>A baseURL might look like: <code>https://api.example.com</code> with endpoints like: <code>/users</code> or <code>/schedule</code></p>
 
 <p>When interacting with more complicated APIs, it may be necessary to create subclasses of your service in order to maintain clean and readable code. In these cases the super-service should still have a baseURL as defined above. However the sub-services should have baseURLs of the form:</p>
-
 <pre class="highlight plaintext"><code>override open class var baseURL: String {
     return super.baseURL + "/users"
 }
@@ -139,9 +132,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvP10APIManager10APIService7headersGSqGVs10DictionarySSSS__"></a>
+                    <a name="/s:10APIManager10APIServiceP7headerss10DictionaryVyS2SGSgvZ"></a>
                     <a name="//apple_ref/swift/Variable/headers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvP10APIManager10APIService7headersGSqGVs10DictionarySSSS__">headers</a>
+                    <a class="token" href="#/s:10APIManager10APIServiceP7headerss10DictionaryVyS2SGSgvZ">headers</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -149,54 +142,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeaders">HTTPHeaders</a></code> to be sent alongside the <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in this <code>APIService</code>.</p>
+                        <p>The <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> to be sent alongside the <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in this <code>APIService</code>.</p>
 
-<p>An <code><a href="../Classes/APIRequest.html">APIRequest</a></code> does not send any <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeaders">HTTPHeaders</a></code> by default, so any and all headers must be specified here.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPHeaders">HTTPHeaders</a></span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TODO:%20Document"></a>
-                <a name="//apple_ref/swift/Section/TODO: Document" class="dashAnchor"></a>
-                <a href="#/TODO:%20Document">
-                  <h3 class="section-name">TODO: Document</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZFP10APIManager10APIService8validateFT4jsonGVs10DictionarySSP___OS_20JSONValidationResult"></a>
-                    <a name="//apple_ref/swift/Method/validate(json:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFP10APIManager10APIService8validateFT4jsonGVs10DictionarySSP___OS_20JSONValidationResult">validate(json:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+<p>An <code><a href="../Classes/APIRequest.html">APIRequest</a></code> does not send any <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> by default, so any and all headers must be specified here.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">APIService</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -208,8 +163,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2017-04-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2017-11-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

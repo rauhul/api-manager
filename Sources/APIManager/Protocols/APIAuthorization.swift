@@ -12,5 +12,5 @@ import Foundation
 public protocol APIAuthorization {
     
     // TODO: Document
-    func embedInto<Service: APIService>(request: APIRequest<Service>) -> (HTTPParameters?, JSON?)
+    func embedInto<Service, ReturnType>(request: APIRequest<Service, ReturnType>) -> (HTTPParameters?, HTTPBody?)
 }

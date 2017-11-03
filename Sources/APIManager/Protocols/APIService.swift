@@ -46,7 +46,4 @@ public protocol APIService {
         An `APIRequest` does not send any `HTTPHeaders` by default, so any and all headers must be specified here.
      */
     static var headers: HTTPHeaders? { get }
-    
-    // TODO: Document
-    static func validate(json: JSON) -> JSONValidationResult
 }

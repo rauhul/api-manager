@@ -5,9 +5,9 @@ APIManager is a framework for abstracting RESTful API requests.
 
 ## Requirements
 
-- iOS 10.0+ 
-- Xcode 8.0+
-- Swift 3.0+
+- iOS 11.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 
 ## Installation
@@ -27,11 +27,11 @@ To integrate APIManager into your Xcode project using CocoaPods, specify it in y
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'APIManager', '~> 0.0.4'
+    pod 'APIManager', '~> 0.1.0'
 end
 ```
 
@@ -41,6 +41,8 @@ Then, run the following command:
 $ pod install
 ```
 
+#### Note
+APIManager 0.5.0 is the last release with Swift 3 support
 
 ### Swift Package Manager
 
@@ -50,19 +52,32 @@ Once you have your Swift package set up, adding APIManager as a dependency is as
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/rauhul/api-manager.git", majorVersion: 0)
+    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.1.0")
 ]
 ```
 
 
 ## Usage
 
-APIManager relies on users to create `APIServices` relevent to the RESTful APIs they are working with.
+APIManager relies on users to create `APIServices` and  `APIReturnable` types relevent to the RESTful APIs they are working with.
+
+
+### Making an APIReturnable Type
+
+An APIReturnable Type only needs to conform to one method  `init(from: Data) throws`. APIManager extends `Decodable` types to also be `APIReturnable`. An example implementation can be found below:
+
+```swift
+extension APIReturnable where Self: Decodable {
+    init(from data: Data) throws {
+        self = try JSONDecoder().decode(Self.self, from: data)
+    }
+}
+```
 
 
 ### Making an APIService
 
-An APIService is made up of 4 components.
+An APIService is made up of 3 components.
 
 1. A `baseURL`. Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service communicates with.
 
@@ -83,27 +98,11 @@ open class var headers: HTTPHeaders? {
 
 ```
 
-3. A validation function `validate(json: JSON) -> JSONValidationResult`. This method provides a point outside of `APIRequest` for your service to validate the response json from a RESTful request. This validation should be common accross all endpoints in the service. If no validation is required, simply return `.success`.
+3. A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the `APIRequest` constructor that can take in data (as `HTTPParameters` and/or `JSON`). For example if you would like to get some user information by id the endpoint may look like this:
 
 ```swift
-open class func validate(json: JSON) -> JSONValidationResult {
-    if let error = json["error"] as? String {
-        return .failure(error: error)
-    }   
-
-    if json["data"] != nil {
-        return .success
-    }
-
-    return .failure(error: "No data nor error returned.")
-}
-```
-
-4. A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the `APIRequest` constructor that can take in data (as `HTTPParameters` and/or `JSON`). For example if you would like to get some user information by id the endpoint may look like this:
-
-```swift
-open class func getUser(byId id: Int) -> APIRequest<GrootMerchService> {
-    return APIRequest<ExampleService>(endpoint: "/users", params: ["id": id], body: nil, method: .GET)
+open class func getUser(byId id: Int) -> APIRequest<ExampleService, ExampleReturnType> {
+    return APIRequest<ExampleService, ExampleReturnType>(endpoint: "/users", params: ["id": id], body: nil, method: .GET)
 }
 
 ```
