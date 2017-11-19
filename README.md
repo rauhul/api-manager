@@ -1,20 +1,14 @@
 # api-manager
-
 APIManager is a framework for abstracting RESTful API requests.
 
-
 ## Requirements
-
 - iOS 11.0+
 - Xcode 9.0+
 - Swift 4.0+
 
-
 ## Installation
 
-
 ### CocoaPods
-
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```bash
@@ -45,8 +39,7 @@ $ pod install
 APIManager 0.5.0 is the last release with Swift 3 support
 
 ### Swift Package Manager
-
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
 
 Once you have your Swift package set up, adding APIManager as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
@@ -56,11 +49,8 @@ dependencies: [
 ]
 ```
 
-
 ## Usage
-
 APIManager relies on users to create `APIServices` and  `APIReturnable` types relevent to the RESTful APIs they are working with.
-
 
 ### Making an APIReturnable Type
 
@@ -74,9 +64,7 @@ extension APIReturnable where Self: Decodable {
 }
 ```
 
-
 ### Making an APIService
-
 An APIService is made up of 3 components.
 
 1. A `baseURL`. Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service communicates with.
@@ -109,10 +97,8 @@ open class func getUser(byId id: Int) -> APIRequest<ExampleService, ExampleRetur
 
 > Please look at [acm-uiuc/groot-swift](https://github.com/acm-uiuc/groot-swift) for a more detailed example of an `APIService`
 
-
 ### Using an APIService
-
-Now that you have an `APIService`, you can use it make RESTful API Requests. 
+Now that you have an `APIService`, you can use it make RESTful API Requests.
 
 All the RESTful API endpoints we need to access should already be defined in our `APIService`, so using them is simply a matter of calling them.
 
@@ -147,17 +133,11 @@ ExampleService.getUser(byId: 452398)
 .perform(withAuthorization: nil)
 ```
 
-
 ## Support
-
 Please [open an issue](https://github.com/rauhul/api-manager/issues/new) for support.
 
-
 ## Contributing
-
 Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/rauhul/api-manager/compare/).
 
-
 ## License
-
 This project is licensed under the MIT License. For a full copy of this license take a look at the LICENSE file.
