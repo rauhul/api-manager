@@ -9,7 +9,6 @@
 import Foundation
 import APIManager
 
-
 extension Data: APIReturnable {
     public init(from: Data) throws {
         self = from
