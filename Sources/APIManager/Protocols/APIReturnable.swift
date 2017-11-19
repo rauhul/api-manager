@@ -15,10 +15,10 @@ public protocol APIReturnable {
 }
 
 // TODO: Document
-extension APIReturnable where Self: Decodable {
+public extension APIReturnable where Self: Decodable {
 
     // TODO: Document
-    init(from data: Data) throws {
+    public init(from data: Data) throws {
         self = try JSONDecoder().decode(Self.self, from: data)
     }
 }
