@@ -15,11 +15,9 @@ class APIManagerTests: XCTestCase {
         .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
-        }
-        .authorization(nil)
-        .perform()
+        }.authorization(nil).perform()
 
-        waitForExpectations(timeout: 15.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
     func testPostRequest() {
