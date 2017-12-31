@@ -22,7 +22,7 @@ import Foundation
     ```
  */
 public protocol APIService {
-    
+
     /**
         The base URL for this `APIService`.
      
@@ -39,7 +39,7 @@ public protocol APIService {
         ```
      */
     static var baseURL: String { get }
-    
+
     /**
         The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
         

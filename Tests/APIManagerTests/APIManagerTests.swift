@@ -7,12 +7,12 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Get request completion")
 
         TestService.get()
-        .onSuccess{ (json) in
+        .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/get")
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -25,12 +25,12 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Post request completion")
 
         TestService.post()
-        .onSuccess{ (json) in
+        .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/post")
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -43,11 +43,11 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Head request completion")
 
         TestService.head()
-        .onSuccess{ (data) in
+        .onSuccess { (data) in
             XCTAssertTrue(data.isEmpty)
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -60,12 +60,12 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Put request completion")
 
         TestService.put()
-        .onSuccess{ (json) in
+        .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/put")
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -78,12 +78,12 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Delete request completion")
 
         TestService.delete()
-        .onSuccess{ (json) in
+        .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/delete")
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -96,11 +96,11 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Options request completion")
 
         TestService.options()
-        .onSuccess{ (data) in
+        .onSuccess { (data) in
             XCTAssertTrue(data.isEmpty)
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -113,12 +113,12 @@ class APIManagerTests: XCTestCase {
         let complete = expectation(description: "Patch request completion")
 
         TestService.patch()
-        .onSuccess{ (json) in
+        .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/patch")
             complete.fulfill()
         }
-        .onFailure{ (reason) in
+        .onFailure { (reason) in
             XCTAssert(false, reason)
             complete.fulfill()
         }
@@ -127,15 +127,14 @@ class APIManagerTests: XCTestCase {
         waitForExpectations(timeout: 5.0, handler: nil)
     }
 
-
     static var allTests = [
-        ("Test GET Request",     testGetRequest),
-        ("Test POST Request",    testPostRequest),
-        ("Test HEAD Request",    testHeadRequest),
-        ("Test PUT Request",     testPutRequest),
-        ("Test Delete Request",  testDeleteRequest),
+        ("Test GET Request", testGetRequest),
+        ("Test POST Request", testPostRequest),
+        ("Test HEAD Request", testHeadRequest),
+        ("Test PUT Request", testPutRequest),
+        ("Test Delete Request", testDeleteRequest),
         ("Test OPTIONS Request", testOptionsRequest),
-        ("Test PATCH Request",   testPatchRequest),
+        ("Test PATCH Request", testPatchRequest)
     ]
 
 }

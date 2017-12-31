@@ -12,22 +12,22 @@ import APIManager
 class TestService: APIService {
     static var baseURL: String = "https://httpbin.org"
 
-    static var headers: HTTPHeaders? = nil
+    static var headers: HTTPHeaders?
 
     open class func get() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/get",    method: .GET)
+        return APIRequest<TestService, JSON>(endpoint: "/get", method: .GET)
     }
 
     open class func post() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/post",   method: .POST)
+        return APIRequest<TestService, JSON>(endpoint: "/post", method: .POST)
     }
 
     open class func head() -> APIRequest<TestService, Data> {
-        return APIRequest<TestService, Data>(endpoint: "/get",    method: .HEAD)
+        return APIRequest<TestService, Data>(endpoint: "/get", method: .HEAD)
     }
 
     open class func put() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/put",    method: .PUT)
+        return APIRequest<TestService, JSON>(endpoint: "/put", method: .PUT)
     }
 
     open class func delete() -> APIRequest<TestService, JSON> {
@@ -35,11 +35,11 @@ class TestService: APIService {
     }
 
     open class func options() -> APIRequest<TestService, Data> {
-        return APIRequest<TestService, Data>(endpoint: "/get",    method: .OPTIONS)
+        return APIRequest<TestService, Data>(endpoint: "/get", method: .OPTIONS)
     }
 
     open class func patch() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/patch",  method: .PATCH)
+        return APIRequest<TestService, JSON>(endpoint: "/patch", method: .PATCH)
     }
 
 }

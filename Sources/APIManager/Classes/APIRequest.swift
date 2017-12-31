@@ -140,7 +140,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
             }
 
             if let response = response as? HTTPURLResponse, let data = data {
-                // TODO: Abstract away
+                // maybe this should be abstracted away?
                 if !(200..<300).contains(response.statusCode) {
                     self.failure?(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))
                     return

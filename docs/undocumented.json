@@ -1,26 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Protocols/APIAuthorization.swift",
-      "line": 15,
-      "symbol": "APIAuthorization.embedInto(request:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Protocols/APIReturnable.swift",
-      "line": 12,
-      "symbol": "APIReturnable",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Protocols/APIReturnable.swift",
-      "line": 14,
-      "symbol": "APIReturnable.init(from:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/rauhul/Developer/api-manager"
 }

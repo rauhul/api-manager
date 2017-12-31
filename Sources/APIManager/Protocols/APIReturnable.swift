@@ -8,16 +8,17 @@
 
 import Foundation
 
-// TODO: Document
+/// Defines the methods required for an object to be returned by an `APIService`
 public protocol APIReturnable {
-    // TODO: Document
+
+    /// Defines how to convert returned `Data` into an `APIReturnable` object
     init(from: Data) throws
 }
 
-// TODO: Document
+/// Extension to allow for `Decodable` objects to be intately `APIReturnable`
 public extension APIReturnable where Self: Decodable {
 
-    // TODO: Document
+    /// Conversion from `Data` to a `Decodable` type using a `JSONDecoder`
     public init(from data: Data) throws {
         self = try JSONDecoder().decode(Self.self, from: data)
     }
