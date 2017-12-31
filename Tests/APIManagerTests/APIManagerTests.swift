@@ -16,9 +16,10 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .authorization(nil)
+        .perform()
 
-        waitForExpectations(timeout: 5.0, handler: nil)
+        waitForExpectations(timeout: 15.0, handler: nil)
     }
 
     func testPostRequest() {
@@ -34,7 +35,7 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -51,7 +52,7 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -69,7 +70,7 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -87,7 +88,7 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -104,7 +105,7 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -122,7 +123,7 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, reason)
             complete.fulfill()
         }
-        .perform(withAuthorization: nil)
+        .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }

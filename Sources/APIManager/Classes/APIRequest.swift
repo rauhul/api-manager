@@ -60,6 +60,9 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     /// The json body for the HTTP Request.
     open var body: HTTPBody?
 
+    /// The object used to authorize the request.
+    open private(set) var authorization: APIAuthorization?
+
     // MARK: - Callbacks
     /// The callback on a successful `APIRequest`, called with the json response.
     open private(set) var success: Success?
@@ -67,17 +70,40 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     /// The callback on a failed `APIRequest`, called with the error description.
     open private(set) var failure: Failure?
 
-    // MARK: - Performing a request
+    // MARK: - Helpers
+    /// TODO: DOCUMENT
+    private lazy var apiRequestCallback: (Data?, URLResponse?, Error?) -> Void = { (data, response, error) in
+        if let error = error {
+            self.failure?(error.localizedDescription)
+            return
+        }
+
+        if let response = response as? HTTPURLResponse, let data = data {
+            // maybe this should be abstracted away?
+            if !(200..<300).contains(response.statusCode) {
+                self.failure?(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))
+                return
+            }
+
+            do {
+                let returnValue = try ReturnType.init(from: data)
+                self.success?(returnValue)
+                return
+            } catch {
+                self.failure?(error.localizedDescription)
+                return
+            }
+        }
+
+        self.failure?("Internal error; unable parse returned data.")
+    }
+
     /**
         Converts the `APIRequest` to a URLRequest to be used in a URLSession.
 
-        - parameters:
-            - authorization: An optional `APIAuthorization` to perform the request with. This authorization will be embeded into the URLRequest as defined by the authorization.
-
         - returns: A URL Request representing the APIRequest.
      */
-    open func urlRequest(withAuthorization authorization: APIAuthorization?) -> URLRequest {
-
+    private var urlRequest: URLRequest {
         // add authorization into the HTTPParameters or HTTPBody as needed
         let urlData = authorization?.embedInto(request: self) ?? (self.params, self.body)
 
@@ -121,45 +147,42 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         return request
     }
 
-    /**
-        Performs the APIRequest
-
-        - parameters:
-            - authorization: An optional Authorization to perform the request with.
-        - note:
-            On a successful request the `success` closure will be called with the response json.
-            On a failed request the `failure` closure will be called with the error description.
-     */
-    open func perform(withAuthorization authorization: APIAuthorization?) {
-        let request = urlRequest(withAuthorization: authorization)
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                self.failure?(error.localizedDescription)
-                return
+    private var _task: URLSessionDataTask?
+    private var task: URLSessionDataTask {
+        get {
+            if let task = _task {
+                return task
+            } else {
+                let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: apiRequestCallback)
+                _task = task
+                return task
             }
-
-            if let response = response as? HTTPURLResponse, let data = data {
-                // maybe this should be abstracted away?
-                if !(200..<300).contains(response.statusCode) {
-                    self.failure?(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))
-                    return
-                }
-
-                do {
-                    let returnValue = try ReturnType.init(from: data)
-                    self.success?(returnValue)
-                    return
-                } catch {
-                    self.failure?(error.localizedDescription)
-                    return
-                }
-            }
-
-            self.failure?("Internal error; unable parse returned data.")
-            return
         }
+    }
+
+    // MARK: - API
+    @discardableResult
+    open func cancel() -> APIRequest{
+        task.cancel()
+        return self
+    }
+    @discardableResult
+    open func suspend() -> APIRequest {
+        task.suspend()
+        return self
+    }
+
+    /**
+     Performs the APIRequest
+
+     - note:
+     On a successful request the `success` closure will be called with the response json.
+     On a failed request the `failure` closure will be called with the error description.
+     */
+    @discardableResult
+    open func perform() -> APIRequest {
         task.resume()
+        return self
     }
 
     // MARK: - Init
@@ -181,7 +204,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         self.method = method
     }
 
-    // MARK: - Callback Setters
+    // MARK: - Setters
     /**
         Sets the callback on a successful `APIRequest`, called with the json response.
 
@@ -205,4 +228,18 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         self.failure = failure
         return self
     }
+
+    /**
+        Sets the authorization for an `APIRequest`.
+
+        - parameters:
+            - authorization: The object used to authorize the request.
+     */
+    @discardableResult
+    open func authorization(_ authorization: APIAuthorization?) -> APIRequest {
+        self.authorization = authorization
+        _task = nil
+        return self
+    }
+
 }
