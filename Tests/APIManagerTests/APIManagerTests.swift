@@ -12,8 +12,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertEqual(url, "https://httpbin.org/get")
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }.authorization(nil).perform()
 
@@ -29,8 +29,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertEqual(url, "https://httpbin.org/post")
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
         .perform()
@@ -46,8 +46,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertTrue(data.isEmpty)
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
         .perform()
@@ -64,8 +64,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertEqual(url, "https://httpbin.org/put")
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
         .perform()
@@ -82,8 +82,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertEqual(url, "https://httpbin.org/delete")
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
         .perform()
@@ -99,8 +99,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertTrue(data.isEmpty)
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
         .perform()
@@ -117,8 +117,8 @@ class APIManagerTests: XCTestCase {
             XCTAssertEqual(url, "https://httpbin.org/patch")
             complete.fulfill()
         }
-        .onFailure { (reason) in
-            XCTAssert(false, reason)
+        .onFailure { (error) in
+            XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
         .perform()
