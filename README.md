@@ -1,4 +1,13 @@
-# api-manager
+
+<!--- https://img.shields.io/badge/<SUBJECT>-<STATUS>-<COLOR>.svg --->
+
+# APIManager
+[![Swift Version](https://img.shields.io/badge/swift-v4.0.3-orange.svg)](https://github.com/apple/swift)
+[![Build Status](https://travis-ci.org/rauhul/api-manager.svg?branch=master)](https://travis-ci.org/rauhul/api-manager)
+[![Documentation Converage](https://github.com/rauhul/api-manager/blob/master/docs/badge.svg)](http://htmlpreview.github.io/?https://github.com/rauhul/api-manager/blob/master/docs/index.html)
+[![Release Version](https://img.shields.io/badge/release-v0.1.1-ff69b4.svg)](https://github.com/rauhul/api-manager/releases)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rauhul/api-manager/master/LICENSE)
+
 APIManager is a framework for abstracting RESTful API requests.
 
 ## Requirements
