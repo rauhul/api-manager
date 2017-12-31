@@ -1,33 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Classes/APIRequest.swift",
-      "line": 145,
-      "symbol": "APIRequest._task",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Classes/APIRequest.swift",
-      "line": 146,
-      "symbol": "APIRequest.task",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Classes/APIRequest.swift",
-      "line": 160,
-      "symbol": "APIRequest.cancel()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/Classes/APIRequest.swift",
-      "line": 166,
-      "symbol": "APIRequest.suspend()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/rauhul/Developer/api-manager"
 }

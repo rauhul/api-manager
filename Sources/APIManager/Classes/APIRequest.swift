@@ -16,6 +16,15 @@ import Foundation
 open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
 
     // MARK: - Types & Aliases
+    /// Enumeration of the Errors that can occur during an APIRequest.
+    public enum APIRequestError: Error {
+        /// occurs when an APIRequest gets a response with an invalid response code, additionally provides a decription of the error code
+        case invalidHTTPReponse(code: Int, description: String)
+
+        /// occurs when an APIRequest encounters an inconsistancy it does not know how to handle, additionally provides a decription of the error
+        case internalError(description: String)
+    }
+
     /// Enumeration of the HTTP methods supported by APIRequest.
     public enum HTTPMethod: String {
         /// The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
@@ -44,7 +53,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     public typealias Success = (_ returnValue: ReturnType) -> Void
 
     /// Alias for the callback when a `APIRequest` fails, called with the error description.
-    public typealias Failure = (_ reason: String) -> Void
+    public typealias Failure = (_ error: Error) -> Void
 
     /// Alias for the callback when an `APIRequest` is cancelled. No additional data is provided.
     public typealias Cancellation = () -> Void
@@ -83,15 +92,17 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
                 self.cancellation?()
                 return
             } else {
-                self.failure?(error.localizedDescription)
+                self.failure?(error)
                 return
             }
         }
 
         if let response = response as? HTTPURLResponse, let data = data {
+            let code = response.statusCode
             // maybe this should be abstracted away?
-            if !(200..<300).contains(response.statusCode) {
-                self.failure?(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))
+            if !(200..<300).contains(code) {
+                let error = APIRequestError.invalidHTTPReponse(code: code, description: HTTPURLResponse.localizedString(forStatusCode: code))
+                self.failure?(error)
                 return
             }
 
@@ -100,12 +111,12 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
                 self.success?(returnValue)
                 return
             } catch {
-                self.failure?(error.localizedDescription)
+                self.failure?(error)
                 return
             }
         }
 
-        self.failure?("Internal error; unable parse returned data.")
+        self.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
     }
 
     // MARK: - Generators

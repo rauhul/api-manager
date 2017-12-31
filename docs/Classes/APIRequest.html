@@ -34,6 +34,9 @@
                 <a href="../Classes/APIRequest.html">APIRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/APIRequest/APIRequestError.html">– APIRequestError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/APIRequest/HTTPMethod.html">– HTTPMethod</a>
               </li>
             </ul>
@@ -96,6 +99,34 @@
                 </a>
               </div>
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC0B5ErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/APIRequestError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC0B5ErrorO">APIRequestError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enumeration of the Errors that can occur during an APIRequest.</p>
+
+                        <a href="../Classes/APIRequest/APIRequestError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">APIRequestError</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -171,7 +202,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Failure</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">reason</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Failure</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -403,9 +434,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10APIManager10APIRequestC7failureySScSgv"></a>
+                    <a name="/s:10APIManager10APIRequestC7failureys5Error_pcSgv"></a>
                     <a name="//apple_ref/swift/Property/failure" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIRequestC7failureySScSgv">failure</a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC7failureys5Error_pcSgv">failure</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -577,110 +608,6 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/API"></a>
-                <a name="//apple_ref/swift/Section/API" class="dashAnchor"></a>
-                <a href="#/API">
-                  <h3 class="section-name">API</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager10APIRequestC6cancelACyxq_GyF"></a>
-                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIRequestC6cancelACyxq_GyF">cancel()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Cancels the APIRequest, can be resumed using <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7performACyxq_GyF">perform()</a></code></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>self for method chaining as need</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager10APIRequestC5pauseACyxq_GyF"></a>
-                    <a name="//apple_ref/swift/Method/pause()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIRequestC5pauseACyxq_GyF">pause()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Pauses the APIRequest, can be resumed using <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7performACyxq_GyF">perform()</a></code>. Has no effect if the APIRequest has compeleted or has been cancelled.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">pause</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>self for method chaining as need</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager10APIRequestC7performACyxq_GyF"></a>
-                    <a name="//apple_ref/swift/Method/perform()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIRequestC7performACyxq_GyF">perform()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Performs the APIRequest. On a successful request the <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7successyq_cSgv">success</a></code> closure will be called with the response json. On a failed request the <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7failureySScSgv">failure</a></code> closure will be called with the error description. On a cancelled request the <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC12cancellationyycSgv">cancellation</a></code> closure will be called.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>self for method chaining as need</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
                 <a name="/Init"></a>
                 <a name="//apple_ref/swift/Section/Init" class="dashAnchor"></a>
                 <a href="#/Init">
@@ -839,9 +766,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10APIManager10APIRequestC9onFailureACyxq_GySScSgF"></a>
+                    <a name="/s:10APIManager10APIRequestC9onFailureACyxq_Gys5Error_pcSgF"></a>
                     <a name="//apple_ref/swift/Method/onFailure(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIRequestC9onFailureACyxq_GySScSgF">onFailure(_:)</a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC9onFailureACyxq_Gys5Error_pcSgF">onFailure(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -978,6 +905,110 @@
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>self for method chaining as need</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/API"></a>
+                <a name="//apple_ref/swift/Section/API" class="dashAnchor"></a>
+                <a href="#/API">
+                  <h3 class="section-name">API</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC6cancelACyxq_GyF"></a>
+                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC6cancelACyxq_GyF">cancel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels the APIRequest, can be resumed using <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7performACyxq_GyF">perform()</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>self for method chaining as need</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC5pauseACyxq_GyF"></a>
+                    <a name="//apple_ref/swift/Method/pause()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC5pauseACyxq_GyF">pause()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pauses the APIRequest, can be resumed using <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7performACyxq_GyF">perform()</a></code>. Has no effect if the APIRequest has compeleted or has been cancelled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">pause</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>self for method chaining as need</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC7performACyxq_GyF"></a>
+                    <a name="//apple_ref/swift/Method/perform()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC7performACyxq_GyF">perform()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs the APIRequest. On a successful request the <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7successyq_cSgv">success</a></code> closure will be called with the response json. On a failed request the <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7failureys5Error_pcSgv">failure</a></code> closure will be called with the error description. On a cancelled request the <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC12cancellationyycSgv">cancellation</a></code> closure will be called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
+
+                        </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
