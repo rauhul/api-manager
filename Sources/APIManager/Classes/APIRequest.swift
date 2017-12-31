@@ -174,6 +174,9 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
 
     /// Accessor for `_task`, creates the `URLSessionDataTask` as needed
     private var task: URLSessionDataTask {
+        set {
+            fatalError("Cannot be set directly, please only use _task = nil")
+        }
         get {
             if let task = _task {
                 return task
@@ -270,7 +273,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
      */
 
     @discardableResult
-    open func cancel() -> APIRequest{
+    open func cancel() -> APIRequest {
         task.cancel()
         return self
     }
