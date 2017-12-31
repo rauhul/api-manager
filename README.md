@@ -34,7 +34,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'APIManager', '~> 0.1.0'
+    pod 'APIManager', '~> 0.1.1'
 end
 ```
 
@@ -45,7 +45,7 @@ $ pod install
 ```
 
 #### Note
-APIManager 0.5.0 is the last release with Swift 3 support
+APIManager 0.0.5 is the last release with Swift 3 support
 
 ### Swift Package Manager
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
@@ -54,7 +54,7 @@ Once you have your Swift package set up, adding APIManager as a dependency is as
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.1.0")
+    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.1.1")
 ]
 ```
 
@@ -103,8 +103,6 @@ open class func getUser(byId id: Int) -> APIRequest<ExampleService, ExampleRetur
 }
 
 ```
-
-> Please look at [acm-uiuc/groot-swift](https://github.com/acm-uiuc/groot-swift) for a more detailed example of an `APIService`
 
 ### Using an APIService
 Now that you have an `APIService`, you can use it make RESTful API Requests.
