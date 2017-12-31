@@ -1,6 +1,11 @@
 language: swift
 os: osx
 osx_image: xcode9.2
+
+install:
+  - .travis_support_install_swiftlint.sh
+
 script:
-    - swift build
-    - swift test
+  - swiftlint
+  - swift build
+  - swift test
