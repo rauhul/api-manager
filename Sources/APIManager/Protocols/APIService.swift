@@ -56,9 +56,9 @@ public protocol APIService {
 }
 
 /// Default implementations of APIService components
-extension APIService {
+public extension APIService {
     /// Default implementation of validate that marks any response with a status code in the range 200..<300 as valid.
-    static func validate(statusCode: Int) throws {
+    public static func validate(statusCode: Int) throws {
         if !(200..<300).contains(statusCode) {
             let description = HTTPURLResponse.localizedString(forStatusCode: statusCode)
             throw APIRequestError.invalidHTTPReponse(code: statusCode, description: description)
