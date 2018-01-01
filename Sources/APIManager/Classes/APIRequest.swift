@@ -8,6 +8,16 @@
 
 import Foundation
 
+// TODO: refactor this into APIRequest
+/// Enumeration of the Errors that can occur during an APIRequest.
+public enum APIRequestError: Error {
+    /// occurs when an APIRequest gets a response with an invalid response code, additionally provides a decription of the error code
+    case invalidHTTPReponse(code: Int, description: String)
+
+    /// occurs when an APIRequest encounters an inconsistancy it does not know how to handle, additionally provides a decription of the error
+    case internalError(description: String)
+}
+
 /**
     Base class for creating APIRequests.
 
@@ -16,15 +26,6 @@ import Foundation
 open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
 
     // MARK: - Types & Aliases
-    /// Enumeration of the Errors that can occur during an APIRequest.
-    public enum APIRequestError: Error {
-        /// occurs when an APIRequest gets a response with an invalid response code, additionally provides a decription of the error code
-        case invalidHTTPReponse(code: Int, description: String)
-
-        /// occurs when an APIRequest encounters an inconsistancy it does not know how to handle, additionally provides a decription of the error
-        case internalError(description: String)
-    }
-
     /// Enumeration of the HTTP methods supported by APIRequest.
     public enum HTTPMethod: String {
         /// The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
@@ -98,15 +99,8 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         }
 
         if let response = response as? HTTPURLResponse, let data = data {
-            let code = response.statusCode
-            // maybe this should be abstracted away?
-            if !(200..<300).contains(code) {
-                let error = APIRequestError.invalidHTTPReponse(code: code, description: HTTPURLResponse.localizedString(forStatusCode: code))
-                self.failure?(error)
-                return
-            }
-
             do {
+                try Service.validate(statusCode: response.statusCode)
                 let returnValue = try ReturnType.init(from: data)
                 self.success?(returnValue)
                 return
