@@ -46,4 +46,22 @@ public protocol APIService {
         An `APIRequest` does not send any `HTTPHeaders` by default, so any and all headers must be specified here.
      */
     static var headers: HTTPHeaders? { get }
+
+    /**
+        Offers an optional point for an `APIService` to determine what HTTPReponse status codes are valid.
+
+        The default implementation marks any response with a status code in the range 200..<300 as valid. To change this behavior, simiply override this method and throw an APIRequestError.invalidHTTPReponse for any invalid response codes.
+     */
+    static func validate(statusCode: Int) throws
+}
+
+/// Default implementations of APIService components
+extension APIService {
+    /// Default implementation of validate that marks any response with a status code in the range 200..<300 as valid.
+    static func validate(statusCode: Int) throws {
+        if !(200..<300).contains(statusCode) {
+            let description = HTTPURLResponse.localizedString(forStatusCode: statusCode)
+            throw APIRequestError.invalidHTTPReponse(code: statusCode, description: description)
+        }
+    }
 }
