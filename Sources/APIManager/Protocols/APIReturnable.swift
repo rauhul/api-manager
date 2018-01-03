@@ -12,7 +12,7 @@ import Foundation
 public protocol APIReturnable {
 
     /// Defines how to convert returned `Data` into an `APIReturnable` object
-    init(from: Data) throws
+    init(from data: Data) throws
 }
 
 /// Extension to allow for `Decodable` objects to be intately `APIReturnable`

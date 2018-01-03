@@ -15,32 +15,32 @@ class TestService: APIService {
 
     static var headers: HTTPHeaders?
 
-    open class func get() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/get", method: .GET)
+    open class func get() -> APIRequest<JSON> {
+        return APIRequest<JSON>(service: self, endpoint: "/get", method: .GET)
     }
 
-    open class func post() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/post", method: .POST)
+    open class func post() -> APIRequest<JSON> {
+        return APIRequest<JSON>(service: self, endpoint: "/post", method: .POST)
     }
 
-    open class func head() -> APIRequest<TestService, Data> {
-        return APIRequest<TestService, Data>(endpoint: "/get", method: .HEAD)
+    open class func head() -> APIRequest<Data> {
+        return APIRequest<Data>(service: self, endpoint: "/get", method: .HEAD)
     }
 
-    open class func put() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/put", method: .PUT)
+    open class func put() -> APIRequest<JSON> {
+        return APIRequest<JSON>(service: self, endpoint: "/put", method: .PUT)
     }
 
-    open class func delete() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/delete", method: .DELETE)
+    open class func delete() -> APIRequest<JSON> {
+        return APIRequest<JSON>(service: self, endpoint: "/delete", method: .DELETE)
     }
 
-    open class func options() -> APIRequest<TestService, Data> {
-        return APIRequest<TestService, Data>(endpoint: "/get", method: .OPTIONS)
+    open class func options() -> APIRequest<Data> {
+        return APIRequest<Data>(service: self, endpoint: "/get", method: .OPTIONS)
     }
 
-    open class func patch() -> APIRequest<TestService, JSON> {
-        return APIRequest<TestService, JSON>(endpoint: "/patch", method: .PATCH)
+    open class func patch() -> APIRequest<JSON> {
+        return APIRequest<JSON>(service: self, endpoint: "/patch", method: .PATCH)
     }
 
 }
