@@ -12,5 +12,5 @@ import Foundation
 public protocol APIAuthorization {
 
     /// Defines how to embed a custom `APIAuthorization` object into an `APIRequest`. This can be done by modifying the request's one or all of the following: url parameters, body, headers
-    func embedInto<Service, ReturnType>(request: APIRequest<Service, ReturnType>) -> (HTTPParameters?, HTTPBody?)
+    func embedInto<ReturnType>(request: APIRequest<ReturnType>) -> (HTTPParameters?, HTTPBody?)
 }

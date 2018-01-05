@@ -8,7 +8,6 @@
 
 import Foundation
 
-// TODO: refactor this into APIRequest
 /// Enumeration of the Errors that can occur during an APIRequest.
 public enum APIRequestError: Error {
     /// occurs when an APIRequest gets a response with an invalid response code, additionally provides a decription of the error code
@@ -23,8 +22,7 @@ public enum APIRequestError: Error {
 
     - note: `APIRequests` should be created through a class that conforms to `APIService`.
  */
-open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
-
+open class APIRequest<ReturnType: APIReturnable> {
     // MARK: - Types & Aliases
     /// Enumeration of the HTTP methods supported by APIRequest.
     public enum HTTPMethod: String {
@@ -60,11 +58,19 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     public typealias Cancellation = () -> Void
 
     // MARK: - Required Properties
+<<<<<<< HEAD
     /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
+=======
+    /// The endpoint for the HTTP Request relative to the baseURL of the service.
+>>>>>>> 16427c4a911a57385e0013da1d26565d93ac4773
     open private(set) var endpoint: String
 
     /// The method for the HTTP Request.
     open private(set) var method: HTTPMethod
+
+    // MARK: - Generics
+    /// TODO: Document
+    open private(set) var service: APIService.Type
 
     // MARK: - Optional Properties
     /// The url parameters for the HTTP Request.
@@ -77,10 +83,10 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     open private(set) var authorization: APIAuthorization?
 
     // MARK: - Callbacks
-    /// The callback on a successful `APIRequest`, called with the json response.
+    /// The callback on a successful `APIRequest`, called with the an object of the ReturnType.
     open private(set) var success: Success?
 
-    /// The callback on a failed `APIRequest`, called with the error description.
+    /// The callback on a failed `APIRequest`, called with the error.
     open private(set) var failure: Failure?
 
     /// The callback on a cancelled `APIRequest`.
@@ -94,26 +100,20 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         if let error = error {
             if (error as NSError).code == NSURLErrorCancelled {
                 self?.cancellation?()
-                return
             } else {
                 self?.failure?(error)
-                return
             }
-        }
-
-        if let response = response as? HTTPURLResponse, let data = data {
+        } else if let response = response as? HTTPURLResponse, let data = data {
             do {
-                try Service.validate(statusCode: response.statusCode)
-                let returnValue = try ReturnType.init(from: data)
+                try self?.service.validate(statusCode: response.statusCode)
+                let returnValue = try ReturnType(from: data)
                 self?.success?(returnValue)
-                return
             } catch {
                 self?.failure?(error)
-                return
             }
+        } else {
+            self?.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
         }
-
-        self?.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
     }
 
     // MARK: - Generators
@@ -123,7 +123,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         let urlData = authorization?.embedInto(request: self) ?? (self.params, self.body)
 
         // Create base URL String by combining the Service url and the endpoint url
-        var urlString = Service.baseURL + endpoint
+        var urlString = service.baseURL + endpoint
 
         // Add Paramers to URL
         if let params = urlData.0 {
@@ -149,7 +149,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         }
 
         // Add headers to URLRequest
-        if let headers = Service.headers {
+        if let headers = service.headers {
             for (field, value) in headers {
                 request.addValue(value, forHTTPHeaderField: field)
             }
@@ -197,23 +197,17 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
 
         - note: Only to be used by a class that conforms to APIService
      */
-    public init(endpoint: String, params: HTTPParameters? = nil, body: HTTPBody? = nil, method: APIRequest.HTTPMethod) {
+    public init(service: APIService.Type, endpoint: String, params: HTTPParameters? = nil, body: HTTPBody? = nil, method: APIRequest.HTTPMethod) {
         self.endpoint = endpoint
         self.body = body
         self.params = params
         self.method = method
-        let addr = Unmanaged.passUnretained(self).toOpaque()
-        print("Hello, World! I am \(type(of: self)): \(addr)")
-    }
-
-    deinit {
-        let addr = Unmanaged.passUnretained(self).toOpaque()
-        print("Goodbye, World! I am \(type(of: self)): \(addr)")
+        self.service = service
     }
 
     // MARK: - Setters
     /**
-        Sets the callback on a successful `APIRequest`, called with the json response.
+        Sets the callback on a successful `APIRequest`, called with the an object of the ReturnType.
 
         - parameters:
             - success: The block to be called on a successful request.
@@ -227,7 +221,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     }
 
     /**
-        Sets the callback on a failed `APIRequest`, called with the json response.
+        Sets the callback on a failed `APIRequest`, called with the error.
 
         - parameters:
             - failure: The block to be called on a failed request.
@@ -241,7 +235,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     }
 
     /**
-        Sets the callback on a failed `APIRequest`, called with the json response.
+        Sets the callback on a cancelled `APIRequest`.
 
         - parameters:
             - cancellation: The block to be called on a cancelled request.
@@ -293,7 +287,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     }
 
     /**
-        Performs the APIRequest. On a successful request the `success` closure will be called with the response json. On a failed request the `failure` closure will be called with the error description. On a cancelled request the `cancellation` closure will be called.
+        Performs the APIRequest. On a successful request the `success` closure will be called with the an object of the ReturnType. On a failed request the `failure` closure will be called with the error. On a cancelled request the `cancellation` closure will be called.
 
         - returns: self for method chaining as need
      */
