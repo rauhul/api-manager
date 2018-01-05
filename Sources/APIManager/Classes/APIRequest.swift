@@ -60,7 +60,7 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     public typealias Cancellation = () -> Void
 
     // MARK: - Required Properties
-    /// The endpoint for the HTTP Request relative to the baseURL of the Service.
+    /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
     open private(set) var endpoint: String
 
     /// The method for the HTTP Request.
@@ -87,13 +87,16 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
     open private(set) var cancellation: Cancellation?
 
     /// The callback for the `URLRequest` used to make the `APIRequest`
-    private lazy var urlRequestCallback: (Data?, URLResponse?, Error?) -> Void = { (data, response, error) in
+    private lazy var urlRequestCallback: (Data?, URLResponse?, Error?) -> Void = { [weak self] (data, response, error) in
+        defer {
+            self?.unmanaged = nil
+        }
         if let error = error {
             if (error as NSError).code == NSURLErrorCancelled {
-                self.cancellation?()
+                self?.cancellation?()
                 return
             } else {
-                self.failure?(error)
+                self?.failure?(error)
                 return
             }
         }
@@ -102,15 +105,15 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
             do {
                 try Service.validate(statusCode: response.statusCode)
                 let returnValue = try ReturnType.init(from: data)
-                self.success?(returnValue)
+                self?.success?(returnValue)
                 return
             } catch {
-                self.failure?(error)
+                self?.failure?(error)
                 return
             }
         }
 
-        self.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
+        self?.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
     }
 
     // MARK: - Generators
@@ -199,6 +202,13 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         self.body = body
         self.params = params
         self.method = method
+        let addr = Unmanaged.passUnretained(self).toOpaque()
+        print("Hello, World! I am \(type(of: self)): \(addr)")
+    }
+
+    deinit {
+        let addr = Unmanaged.passUnretained(self).toOpaque()
+        print("Goodbye, World! I am \(type(of: self)): \(addr)")
     }
 
     // MARK: - Setters
@@ -265,7 +275,6 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
 
         - returns: self for method chaining as need
      */
-
     @discardableResult
     open func cancel() -> APIRequest {
         task.cancel()
@@ -294,4 +303,19 @@ open class APIRequest<Service: APIService, ReturnType: APIReturnable> {
         return self
     }
 
+    /**
+     */
+    private var unmanaged: Unmanaged<APIRequest<Service, ReturnType>>? {
+        willSet {
+            unmanaged?.release()
+        }
+    }
+    open func autoManage() {
+        unmanaged = Unmanaged.passRetained(self)
+    }
 }
+
+
+
+
+
