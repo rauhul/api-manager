@@ -304,8 +304,3 @@ open class APIRequest<ReturnType: APIReturnable> {
         unmanaged = Unmanaged.passRetained(self)
     }
 }
-
-
-
-
-
