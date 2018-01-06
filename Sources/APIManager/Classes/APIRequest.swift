@@ -58,11 +58,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     public typealias Cancellation = () -> Void
 
     // MARK: - Required Properties
-<<<<<<< HEAD
     /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
-=======
-    /// The endpoint for the HTTP Request relative to the baseURL of the service.
->>>>>>> 16427c4a911a57385e0013da1d26565d93ac4773
     open private(set) var endpoint: String
 
     /// The method for the HTTP Request.
@@ -299,7 +295,7 @@ open class APIRequest<ReturnType: APIReturnable> {
 
     /**
      */
-    private var unmanaged: Unmanaged<APIRequest<Service, ReturnType>>? {
+    private var unmanaged: Unmanaged<APIRequest<ReturnType>>? {
         willSet {
             unmanaged?.release()
         }
