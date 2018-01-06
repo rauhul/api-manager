@@ -58,7 +58,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     public typealias Cancellation = () -> Void
 
     // MARK: - Required Properties
-    /// The endpoint for the HTTP Request relative to the baseURL of the service.
+    /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
     open private(set) var endpoint: String
 
     /// The method for the HTTP Request.
@@ -89,23 +89,26 @@ open class APIRequest<ReturnType: APIReturnable> {
     open private(set) var cancellation: Cancellation?
 
     /// The callback for the `URLRequest` used to make the `APIRequest`
-    private lazy var urlRequestCallback: (Data?, URLResponse?, Error?) -> Void = { (data, response, error) in
+    private lazy var urlRequestCallback: (Data?, URLResponse?, Error?) -> Void = { [weak self] (data, response, error) in
+        defer {
+            self?.unmanaged = nil
+        }
         if let error = error {
             if (error as NSError).code == NSURLErrorCancelled {
-                self.cancellation?()
+                self?.cancellation?()
             } else {
-                self.failure?(error)
+                self?.failure?(error)
             }
         } else if let response = response as? HTTPURLResponse, let data = data {
             do {
-                try self.service.validate(statusCode: response.statusCode)
+                try self?.service.validate(statusCode: response.statusCode)
                 let returnValue = try ReturnType(from: data)
-                self.success?(returnValue)
+                self?.success?(returnValue)
             } catch {
-                self.failure?(error)
+                self?.failure?(error)
             }
         } else {
-            self.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
+            self?.failure?(APIRequestError.internalError(description: "Unable parse returned data."))
         }
     }
 
@@ -290,4 +293,14 @@ open class APIRequest<ReturnType: APIReturnable> {
         return self
     }
 
+    /**
+     */
+    private var unmanaged: Unmanaged<APIRequest<ReturnType>>? {
+        willSet {
+            unmanaged?.release()
+        }
+    }
+    open func autoManage() {
+        unmanaged = Unmanaged.passRetained(self)
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 import APIManager
 
 class TestService: APIService {
-    
+
     static var baseURL: String = "https://httpbin.org"
 
     static var headers: HTTPHeaders?

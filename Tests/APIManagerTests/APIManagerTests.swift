@@ -15,7 +15,10 @@ class APIManagerTests: XCTestCase {
         .onFailure { (error) in
             XCTAssert(false, error.localizedDescription)
             complete.fulfill()
-        }.authorization(nil).perform()
+        }
+        .authorization(nil)
+        .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -34,6 +37,7 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -51,6 +55,7 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -69,6 +74,7 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -87,6 +93,7 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -104,6 +111,7 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -122,6 +130,7 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
+        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
