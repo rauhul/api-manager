@@ -3,12 +3,17 @@ import XCTest
 
 class APIManagerTests: XCTestCase {
 
-    var request: AnyObject?
+    var request: APIRequestToken?
+
+    override func tearDown() {
+        request = nil
+        super.tearDown()
+    }
 
     func testGetRequest() {
         let complete = expectation(description: "Get request completion")
 
-        request = TestService.get()
+        TestService.get()
         .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/get")
@@ -18,7 +23,10 @@ class APIManagerTests: XCTestCase {
             XCTAssert(false, error.localizedDescription)
             complete.fulfill()
         }
-        .authorization(nil)
+        .onCancellation {
+            XCTAssert(false, "Request Cancelled")
+            complete.fulfill()
+        }
         .perform()
 
         waitForExpectations(timeout: 5.0, handler: nil)
