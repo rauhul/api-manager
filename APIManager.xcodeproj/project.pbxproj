@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95AD7E642003267500EB981F /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E5D2003267500EB981F /* APIRequest.swift */; };
+		95AD7E652003267500EB981F /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E5E2003267500EB981F /* HTTPHeaders.swift */; };
+		95AD7E662003267500EB981F /* APIReturnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E5F2003267500EB981F /* APIReturnable.swift */; };
+		95AD7E672003267500EB981F /* HTTPParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E602003267500EB981F /* HTTPParameters.swift */; };
+		95AD7E682003267500EB981F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E612003267500EB981F /* APIService.swift */; };
+		95AD7E692003267500EB981F /* APIAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E622003267500EB981F /* APIAuthorization.swift */; };
+		95AD7E6A2003267500EB981F /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E632003267500EB981F /* HTTPBody.swift */; };
+		95AD7E6C2003268400EB981F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E6B2003268400EB981F /* HTTPMethod.swift */; };
+		95AD7E6E2003284600EB981F /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E6D2003284600EB981F /* URL.swift */; };
+		95AD7E702003286900EB981F /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E6F2003286900EB981F /* URLRequest.swift */; };
 		95BF046B1EA9EEAB005536D0 /* APIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BF04691EA9EEAB005536D0 /* APIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95C745A61FC14F89005422F0 /* APIManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BF04661EA9EEAB005536D0 /* APIManager.framework */; };
 		95C745B81FC14FD5005422F0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745AF1FC14FB1005422F0 /* Data.swift */; };
 		95C745B91FC14FD5005422F0 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745B01FC14FB1005422F0 /* APIManagerTests.swift */; };
 		95C745BA1FC14FD5005422F0 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745B11FC14FB1005422F0 /* JSON.swift */; };
 		95C745BB1FC14FD5005422F0 /* TestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745B21FC14FB1005422F0 /* TestService.swift */; };
-		95CAEB821FA6830D002B7374 /* APIReturnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAEB811FA6830D002B7374 /* APIReturnable.swift */; };
-		95D158B81EB104EB00008F35 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D158AE1EB104EB00008F35 /* APIRequest.swift */; };
-		95D158BA1EB104EB00008F35 /* APIAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D158B21EB104EB00008F35 /* APIAuthorization.swift */; };
-		95D158BB1EB104EB00008F35 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D158B31EB104EB00008F35 /* APIService.swift */; };
-		95D158BC1EB104EB00008F35 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D158B51EB104EB00008F35 /* HTTPHeaders.swift */; };
-		95D158BD1EB104EB00008F35 /* HTTPParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D158B61EB104EB00008F35 /* HTTPParameters.swift */; };
-		95D158BE1EB104EB00008F35 /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D158B71EB104EB00008F35 /* HTTPBody.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,16 @@
 		9523B01B1EAE9AF9009A0471 /* APIManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APIManager.podspec; sourceTree = "<group>"; };
 		9523B01D1EAE9AFE009A0471 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9523B01E1EAE9AFE009A0471 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		95AD7E5D2003267500EB981F /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		95AD7E5E2003267500EB981F /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
+		95AD7E5F2003267500EB981F /* APIReturnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIReturnable.swift; sourceTree = "<group>"; };
+		95AD7E602003267500EB981F /* HTTPParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPParameters.swift; sourceTree = "<group>"; };
+		95AD7E612003267500EB981F /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		95AD7E622003267500EB981F /* APIAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAuthorization.swift; sourceTree = "<group>"; };
+		95AD7E632003267500EB981F /* HTTPBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
+		95AD7E6B2003268400EB981F /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		95AD7E6D2003284600EB981F /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		95AD7E6F2003286900EB981F /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		95BF04661EA9EEAB005536D0 /* APIManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BF04691EA9EEAB005536D0 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		95BF046A1EA9EEAB005536D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,14 +58,7 @@
 		95C745B01FC14FB1005422F0 /* APIManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		95C745B11FC14FB1005422F0 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		95C745B21FC14FB1005422F0 /* TestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestService.swift; sourceTree = "<group>"; };
-		95CAEB811FA6830D002B7374 /* APIReturnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIReturnable.swift; sourceTree = "<group>"; };
 		95D158AA1EB1008700008F35 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		95D158AE1EB104EB00008F35 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		95D158B21EB104EB00008F35 /* APIAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAuthorization.swift; sourceTree = "<group>"; };
-		95D158B31EB104EB00008F35 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		95D158B51EB104EB00008F35 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
-		95D158B61EB104EB00008F35 /* HTTPParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPParameters.swift; sourceTree = "<group>"; };
-		95D158B71EB104EB00008F35 /* HTTPBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
 		95D158BF1EB109D200008F35 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,39 +153,18 @@
 		95D158AC1EB104EB00008F35 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				95D158AD1EB104EB00008F35 /* Classes */,
-				95D158B11EB104EB00008F35 /* Protocols */,
-				95D158B41EB104EB00008F35 /* TypeAliases */,
+				95AD7E622003267500EB981F /* APIAuthorization.swift */,
+				95AD7E5D2003267500EB981F /* APIRequest.swift */,
+				95AD7E5F2003267500EB981F /* APIReturnable.swift */,
+				95AD7E612003267500EB981F /* APIService.swift */,
+				95AD7E632003267500EB981F /* HTTPBody.swift */,
+				95AD7E5E2003267500EB981F /* HTTPHeaders.swift */,
+				95AD7E602003267500EB981F /* HTTPParameters.swift */,
+				95AD7E6B2003268400EB981F /* HTTPMethod.swift */,
+				95AD7E6D2003284600EB981F /* URL.swift */,
+				95AD7E6F2003286900EB981F /* URLRequest.swift */,
 			);
 			path = APIManager;
-			sourceTree = "<group>";
-		};
-		95D158AD1EB104EB00008F35 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				95D158AE1EB104EB00008F35 /* APIRequest.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		95D158B11EB104EB00008F35 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				95D158B21EB104EB00008F35 /* APIAuthorization.swift */,
-				95D158B31EB104EB00008F35 /* APIService.swift */,
-				95CAEB811FA6830D002B7374 /* APIReturnable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		95D158B41EB104EB00008F35 /* TypeAliases */ = {
-			isa = PBXGroup;
-			children = (
-				95D158B51EB104EB00008F35 /* HTTPHeaders.swift */,
-				95D158B61EB104EB00008F35 /* HTTPParameters.swift */,
-				95D158B71EB104EB00008F35 /* HTTPBody.swift */,
-			);
-			path = TypeAliases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +229,7 @@
 				TargetAttributes = {
 					95BF04651EA9EEAB005536D0 = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					95C745A01FC14F89005422F0 = {
@@ -293,13 +278,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D158BA1EB104EB00008F35 /* APIAuthorization.swift in Sources */,
-				95D158BE1EB104EB00008F35 /* HTTPBody.swift in Sources */,
-				95D158B81EB104EB00008F35 /* APIRequest.swift in Sources */,
-				95CAEB821FA6830D002B7374 /* APIReturnable.swift in Sources */,
-				95D158BC1EB104EB00008F35 /* HTTPHeaders.swift in Sources */,
-				95D158BD1EB104EB00008F35 /* HTTPParameters.swift in Sources */,
-				95D158BB1EB104EB00008F35 /* APIService.swift in Sources */,
+				95AD7E692003267500EB981F /* APIAuthorization.swift in Sources */,
+				95AD7E652003267500EB981F /* HTTPHeaders.swift in Sources */,
+				95AD7E6E2003284600EB981F /* URL.swift in Sources */,
+				95AD7E682003267500EB981F /* APIService.swift in Sources */,
+				95AD7E642003267500EB981F /* APIRequest.swift in Sources */,
+				95AD7E6C2003268400EB981F /* HTTPMethod.swift in Sources */,
+				95AD7E662003267500EB981F /* APIReturnable.swift in Sources */,
+				95AD7E672003267500EB981F /* HTTPParameters.swift in Sources */,
+				95AD7E6A2003267500EB981F /* HTTPBody.swift in Sources */,
+				95AD7E702003286900EB981F /* URLRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +474,7 @@
 		95C745AA1FC14F89005422F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -504,6 +493,7 @@
 		95C745AB1FC14F89005422F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

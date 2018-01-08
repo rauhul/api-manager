@@ -3,10 +3,12 @@ import XCTest
 
 class APIManagerTests: XCTestCase {
 
+    var request: AnyObject?
+
     func testGetRequest() {
         let complete = expectation(description: "Get request completion")
 
-        TestService.get()
+        request = TestService.get()
         .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/get")
@@ -18,7 +20,6 @@ class APIManagerTests: XCTestCase {
         }
         .authorization(nil)
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -26,7 +27,7 @@ class APIManagerTests: XCTestCase {
     func testPostRequest() {
         let complete = expectation(description: "Post request completion")
 
-        TestService.post()
+        request = TestService.post()
         .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/post")
@@ -37,7 +38,6 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -45,7 +45,7 @@ class APIManagerTests: XCTestCase {
     func testHeadRequest() {
         let complete = expectation(description: "Head request completion")
 
-        TestService.head()
+        request = TestService.head()
         .onSuccess { (data) in
             XCTAssertTrue(data.isEmpty)
             complete.fulfill()
@@ -55,7 +55,6 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -63,7 +62,7 @@ class APIManagerTests: XCTestCase {
     func testPutRequest() {
         let complete = expectation(description: "Put request completion")
 
-        TestService.put()
+        request = TestService.put()
         .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/put")
@@ -74,7 +73,6 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -82,7 +80,7 @@ class APIManagerTests: XCTestCase {
     func testDeleteRequest() {
         let complete = expectation(description: "Delete request completion")
 
-        TestService.delete()
+        request = TestService.delete()
         .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/delete")
@@ -93,7 +91,6 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -101,7 +98,7 @@ class APIManagerTests: XCTestCase {
     func testOptionsRequest() {
         let complete = expectation(description: "Options request completion")
 
-        TestService.options()
+        request = TestService.options()
         .onSuccess { (data) in
             XCTAssertTrue(data.isEmpty)
             complete.fulfill()
@@ -111,7 +108,6 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -119,7 +115,7 @@ class APIManagerTests: XCTestCase {
     func testPatchRequest() {
         let complete = expectation(description: "Patch request completion")
 
-        TestService.patch()
+        request = TestService.patch()
         .onSuccess { (json) in
             let url = json.rawDictionary["url"] as? String
             XCTAssertEqual(url, "https://httpbin.org/patch")
@@ -130,7 +126,6 @@ class APIManagerTests: XCTestCase {
             complete.fulfill()
         }
         .perform()
-        .autoManage()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
