@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>APIReturnable Protocol Reference</title>
+    <title>URLRequest Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/APIReturnable" class="dashAnchor"></a>
-    <a title="APIReturnable Protocol Reference"></a>
+    <a name="//apple_ref/swift/Extension/URLRequest" class="dashAnchor"></a>
+    <a title="URLRequest Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">APIManager Docs</a> (79% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">APIManager Reference</a>
         <img id="carat" src="../img/carat.png" />
-        APIReturnable Protocol Reference
+        URLRequest Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -96,15 +96,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>APIReturnable</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">APIReturnable</span></code></pre>
-
-                </div>
-              </div>
-            <p>Defines the methods required for an object to be returned by an <code><a href="../Protocols/APIService.html">APIService</a></code></p>
-
+            <h1>URLRequest</h1>
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -112,32 +105,24 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10APIManager13APIReturnablePx10Foundation4DataV4from_tKcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager13APIReturnablePx10Foundation4DataV4from_tKcfc">init(from:)</a>
+                    <a name="/s:10Foundation10URLRequestV10APIManagerEAcA3URLV3url_AD10HTTPMethodO6methods10DictionaryVySSypGSg4bodyALyS2SGSg7headerstcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(url:method:body:headers:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10Foundation10URLRequestV10APIManagerEAcA3URLV3url_AD10HTTPMethodO6methods10DictionaryVySSypGSg4bodyALyS2SGSg7headerstcfc">init(url:method:body:headers:)</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines how to convert returned <code>Data</code> into an <code>APIReturnable</code> object</p>
-
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Conversion from <code>Data</code> to a <code>Decodable</code> type using a <code>JSONDecoder</code></p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a></span><span class="p">?,</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
