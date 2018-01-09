@@ -16,8 +16,8 @@ extension URL {
         if let paramaters = paramaters {
             urlString += "?" + paramaters.map { return "\($0)=\($1)" }.joined(separator: "&")
         }
-        
+
         self.init(string: urlString)
     }
-    
+
 }

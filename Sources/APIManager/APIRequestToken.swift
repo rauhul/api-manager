@@ -6,6 +6,8 @@
 //  Copyright © 2018 Rauhul Varma. All rights reserved.
 //
 
+import Foundation
+
 open class APIRequestToken {
 
     // MARK: - Properties

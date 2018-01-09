@@ -6,8 +6,6 @@
 //  Copyright © 2017 Rauhul Varma. All rights reserved.
 //
 
-import Foundation
-
 /// `APIAuthorization` defines all the properties and methods a class must contain to be used as an authorization for an `APIRequest`.
 public protocol APIAuthorization {
 

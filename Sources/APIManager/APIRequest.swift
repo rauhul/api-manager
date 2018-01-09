@@ -6,6 +6,8 @@
 //  Copyright © 2017 Rauhul Varma. All rights reserved.
 //
 
+import Foundation
+
 /// Base class for creating APIRequests.
 /// - note: `APIRequests` should be created through a class that conforms to `APIService`.
 open class APIRequest<ReturnType: APIReturnable> {
