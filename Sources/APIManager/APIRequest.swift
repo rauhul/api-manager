@@ -6,18 +6,6 @@
 //  Copyright © 2017 Rauhul Varma. All rights reserved.
 //
 
-import Foundation
-
-/// Enumeration of the Errors that can occur during an APIRequest.
-public enum APIRequestError: Error {
-    /// occurs when an APIRequest gets a response with an invalid response code, additionally provides a decription of the error code
-    case invalidHTTPReponse(code: Int, description: String)
-
-    /// occurs when an APIRequest encounters an inconsistancy it does not know how to handle, additionally provides a decription of the error
-    case internalError(description: String)
-}
-
-
 /// Base class for creating APIRequests.
 /// - note: `APIRequests` should be created through a class that conforms to `APIService`.
 open class APIRequest<ReturnType: APIReturnable> {
@@ -172,54 +160,3 @@ open class APIRequest<ReturnType: APIReturnable> {
         return APIRequestToken(dataTask)
     }
 }
-
-
-public enum APIRequestState {
-    case running
-    case completed
-}
-
-open class APIRequestToken {
-
-
-    // MARK: - Properties
-    open var state: APIRequestState {
-        return task.state == .completed ? .completed : .running
-    }
-
-    // MARK: - Private Properties
-
-    /// `URLSessionDataTask` backing the APIRequest
-    private var task: URLSessionDataTask
-    private var retain: Unmanaged<APIRequestToken>?
-    private var observation: NSKeyValueObservation?
-
-    public init(_ dataTask: URLSessionDataTask) {
-        task = dataTask
-        task.resume()
-
-        observation = task.observe(\.state) { [weak self] (task, change) in
-            switch task.state {
-            case .completed:
-                self?.retain?.release()
-                self?.observation?.invalidate()
-            default:
-                break
-            }
-        }
-        retain = Unmanaged.passRetained(self)
-
-        print("token init")
-    }
-
-    deinit {
-        print("token deinit")
-    }
-
-    // MARK: - API
-    /// Cancels the `APIRequest` represented by this token
-    open func cancel() {
-        task.cancel()
-    }
-}
-
