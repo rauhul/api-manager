@@ -85,8 +85,8 @@ open class APIRequest<ReturnType: APIReturnable> {
     }
 
     // MARK: - Generators
-    /// Creates the `APIRequest` to a URLRequest to be used in a URLSession.
-    private func urlRequest() -> URLRequest {
+    /// Converts the `APIRequest` into a `URLRequest`.
+    private var urlRequest: URLRequest {
         // add authorization into the HTTPParameters or HTTPBody as needed
         let (paramaters, body) = authorization?.embedInto(request: self) ?? (self.params, self.body)
 
@@ -97,6 +97,10 @@ open class APIRequest<ReturnType: APIReturnable> {
         #endif
 
         return URLRequest(url: url, method: method, body: body, headers: service.headers)
+    }
+
+    private var dataTask: URLSessionDataTask {
+        return URLSession.shared.dataTask(with: urlRequest, completionHandler: urlRequestCallback)
     }
 
     // MARK: - Init
@@ -165,11 +169,8 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// Performs the APIRequest. On a successful request the `success` closure will be called with the an object of the ReturnType. On a failed request the `failure` closure will be called with the error. On a cancelled request the `cancellation` closure will be called.
     @discardableResult
     open func perform() -> APIRequestToken {
-        let task = URLSession.shared.dataTask(with: urlRequest(), completionHandler: urlRequestCallback)
-        task.resume()
-        return APIRequestToken(task: task)
+        return APIRequestToken(dataTask)
     }
-
 }
 
 
@@ -179,6 +180,7 @@ public enum APIRequestState {
 }
 
 open class APIRequestToken {
+
 
     // MARK: - Properties
     open var state: APIRequestState {
@@ -192,8 +194,10 @@ open class APIRequestToken {
     private var retain: Unmanaged<APIRequestToken>?
     private var observation: NSKeyValueObservation?
 
-    public init(task: URLSessionDataTask) {
-        self.task = task
+    public init(_ dataTask: URLSessionDataTask) {
+        task = dataTask
+        task.resume()
+
         observation = task.observe(\.state) { [weak self] (task, change) in
             switch task.state {
             case .completed:
@@ -218,5 +222,4 @@ open class APIRequestToken {
         task.cancel()
     }
 }
-
 
