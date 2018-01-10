@@ -5,7 +5,7 @@
 [![Swift Version](https://img.shields.io/badge/swift-v4.0.3-orange.svg)](https://github.com/apple/swift)
 [![Build Status](https://travis-ci.org/rauhul/api-manager.svg?branch=master)](https://travis-ci.org/rauhul/api-manager)
 [![Documentation Converage](https://github.com/rauhul/api-manager/blob/master/docs/badge.svg)](http://htmlpreview.github.io/?https://github.com/rauhul/api-manager/blob/master/docs/index.html)
-[![Release Version](https://img.shields.io/badge/release-v0.1.1-ff69b4.svg)](https://github.com/rauhul/api-manager/releases)
+[![Release Version](https://img.shields.io/badge/release-v0.2.0-ff69b4.svg)](https://github.com/rauhul/api-manager/releases)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rauhul/api-manager/master/LICENSE)
 
 APIManager is a framework for abstracting RESTful API requests.
@@ -34,7 +34,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'APIManager', '~> 0.1.1'
+    pod 'APIManager', '~> 0.2.0'
 end
 ```
 
@@ -54,7 +54,7 @@ Once you have your Swift package set up, adding APIManager as a dependency is as
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.1.1")
+    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.2.0")
 ]
 ```
 
