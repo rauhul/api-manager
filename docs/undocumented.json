@@ -1,94 +1,10 @@
 {
   "warnings": [
     {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequest.swift",
-      "line": 90,
-      "symbol": "APIRequest.dataTask",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequest.swift",
-      "line": 112,
-      "symbol": "APIRequest.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestState.swift",
-      "line": 9,
-      "symbol": "APIRequestState",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestState.swift",
-      "line": 10,
-      "symbol": "APIRequestState.running",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestState.swift",
-      "line": 11,
+      "line": 15,
       "symbol": "APIRequestState.completed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestToken.swift",
-      "line": 9,
-      "symbol": "APIRequestToken",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestToken.swift",
-      "line": 12,
-      "symbol": "APIRequestToken.state",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestToken.swift",
-      "line": 20,
-      "symbol": "APIRequestToken.retain",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestToken.swift",
-      "line": 21,
-      "symbol": "APIRequestToken.observation",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestToken.swift",
-      "line": 23,
-      "symbol": "APIRequestToken.init(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequestToken.swift",
-      "line": 41,
-      "symbol": "APIRequestToken.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/URL.swift",
-      "line": 13,
-      "symbol": "URL.init(base:paramaters:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/URLRequest.swift",
-      "line": 13,
-      "symbol": "URLRequest.init(url:method:body:headers:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],

@@ -26,11 +26,11 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
     open private(set) var endpoint: String
 
-    /// The method for the HTTP Request.
+    /// The `HTTPMethod` for the HTTP Request.
     open private(set) var method: HTTPMethod
 
     // MARK: - Generics
-    /// TODO: Document
+    /// The `APIService` the `APIRequest` is part of.
     open private(set) var service: APIService.Type
 
     // MARK: - Optional Properties
@@ -53,7 +53,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// The callback on a cancelled `APIRequest`.
     open private(set) var cancellation: Cancellation?
 
-    /// The callback for the `URLRequest` used to make the `APIRequest`
+    /// The callback for the `URLRequest` used to make the `APIRequest`.
     private func urlRequestCallback(data: Data?, response: URLResponse?, error: Error?) {
         if let error = error {
             if (error as NSError).code == NSURLErrorCancelled {
@@ -75,9 +75,9 @@ open class APIRequest<ReturnType: APIReturnable> {
     }
 
     // MARK: - Generators
-    /// Converts the `APIRequest` into a `URLRequest`.
+    /// Creates a `URLRequest` representing the `APIRequest`.
     private var urlRequest: URLRequest {
-        // add authorization into the HTTPParameters or HTTPBody as needed
+        // add authorization into the HTTPParameters or HTTPBody as needed.
         let (paramaters, body) = authorization?.embedInto(request: self) ?? (self.params, self.body)
 
         let url = URL(base: service.baseURL + endpoint, paramaters: paramaters)!
@@ -89,6 +89,7 @@ open class APIRequest<ReturnType: APIReturnable> {
         return URLRequest(url: url, method: method, body: body, headers: service.headers)
     }
 
+    /// Creates a `URLSessionDataTask` representing the `APIRequest`.
     private var dataTask: URLSessionDataTask {
         return URLSession.shared.dataTask(with: urlRequest, completionHandler: urlRequestCallback)
     }
@@ -100,26 +101,20 @@ open class APIRequest<ReturnType: APIReturnable> {
     ///     - queryParams:  The url parameters for the HTTP Request.
     ///     - body:         An optional json body for the HTTP Request.
     ///     - method:       The method for the HTTP Request.
-    /// - note: Only to be used by a class that conforms to APIService
+    /// - note: Only to be used by a class that conforms to APIService.
     public init(service: APIService.Type, endpoint: String, params: HTTPParameters? = nil, body: HTTPBody? = nil, method: HTTPMethod) {
+        self.service = service
         self.endpoint = endpoint
         self.body = body
         self.params = params
         self.method = method
-        self.service = service
-
-        print("request init")
-    }
-
-    deinit {
-        print("request deinit")
     }
 
     // MARK: - Setters
     /// Sets the callback on a successful `APIRequest`, called with the an object of the ReturnType.
     /// - parameters:
     ///     - success: The block to be called on a successful request.
-    /// - returns: `self` for method chaining as need
+    /// - returns: `self` for method chaining as needed.
     @discardableResult
     open func onSuccess(_ success: Success?) -> APIRequest {
         self.success = success
@@ -129,7 +124,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// Sets the callback on a failed `APIRequest`, called with the error.
     /// - parameters:
     ///     - failure: The block to be called on a failed request.
-    /// - returns: `self` for method chaining as need
+    /// - returns: `self` for method chaining as needed.
     @discardableResult
     open func onFailure(_ failure: Failure?) -> APIRequest {
         self.failure = failure
@@ -139,7 +134,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// Sets the callback on a cancelled `APIRequest`.
     /// - parameters:
     ///     - cancellation: The block to be called on a cancelled request.
-    /// - returns: `self` for method chaining as need
+    /// - returns: `self` for method chaining as needed.
     @discardableResult
     open func onCancellation(_ cancellation: Cancellation?) -> APIRequest {
         self.cancellation = cancellation
@@ -149,7 +144,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// Sets the authorization for an `APIRequest`.
     /// - parameters:
     ///     - authorization: The object used to authorize the request.
-    /// - returns: `self` for method chaining as need
+    /// - returns: `self` for method chaining as needed.
     @discardableResult
     open func authorization(_ authorization: APIAuthorization?) -> APIRequest {
         self.authorization = authorization
@@ -157,6 +152,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     }
 
     /// Performs the APIRequest. On a successful request the `success` closure will be called with the an object of the ReturnType. On a failed request the `failure` closure will be called with the error. On a cancelled request the `cancellation` closure will be called.
+    /// - returns: an `APIRequestToken` so the request can be cancelled later and state can be observed.
     @discardableResult
     open func perform() -> APIRequestToken {
         return APIRequestToken(dataTask)

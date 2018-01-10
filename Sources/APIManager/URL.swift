@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// Extension of Foundation.URL.
 extension URL {
 
+    /// Initializer for creating a URL with a base string and optional URLParameters.
     init?(base: String, paramaters: HTTPParameters?) {
         var urlString = base
 

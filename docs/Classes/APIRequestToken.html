@@ -14,7 +14,7 @@
     <a title="APIRequestToken Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">APIManager Docs</a> (79% documented)</p>
+        <p><a href="../index.html">APIManager Docs</a> (98% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -81,9 +81,6 @@
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
               </li>
               <li class="nav-group-task">
@@ -103,7 +100,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A token representing an running or completed <code><a href="../Classes/APIRequest.html">APIRequest</a></code>. Allows running <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s to be cancelled mid flight.</p>
 
           </section>
           <section class="section task-group-section">
@@ -129,7 +126,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Current state of the represented <code><a href="../Classes/APIRequest.html">APIRequest</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -167,7 +164,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>URLSessionDataTask</code> backing the APIRequest</p>
+                        <p><code>URLSessionDataTask</code> backing the APIRequest.</p>
 
                       </div>
                       <div class="declaration">
@@ -194,7 +191,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A reference to self, such that the APIRequest doesn&rsquo;t fall out of scope and get deallocaed before completing.</p>
 
                       </div>
                       <div class="declaration">
@@ -221,7 +218,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Observation of the <code><a href="../Classes/APIRequestToken.html#/s:10APIManager15APIRequestTokenC4task33_4F6F66123D37FC11186049B60A4A2890LLSo18URLSessionDataTaskCv">APIRequestToken.task</a></code> used to determine when then <code><a href="../Classes/APIRequest.html">APIRequest</a></code> has completed.</p>
 
                       </div>
                       <div class="declaration">
@@ -235,6 +232,17 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Init"></a>
+                <a name="//apple_ref/swift/Section/Init" class="dashAnchor"></a>
+                <a href="#/Init">
+                  <h3 class="section-name">Init</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -248,7 +256,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Creates an <code>APIRequestToken</code> from a APIRequest task and starts it immediately.</p>
 
                       </div>
                       <div class="declaration">
@@ -256,33 +264,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">dataTask</span><span class="p">:</span> <span class="kt">URLSessionDataTask</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager15APIRequestTokenCfd"></a>
-                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager15APIRequestTokenCfd">deinit</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">deinit</span></code></pre>
 
                         </div>
                       </div>
@@ -332,7 +313,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2018-01-08)</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2018-01-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

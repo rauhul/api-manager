@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// Extension of Foundation.URL.
 extension URLRequest {
 
+    /// Initializer for creating a URLRequest with an HTTPMethod, HTTPBody, and HTTPHeaders.
     init(url: URL, method: HTTPMethod, body: HTTPBody?, headers: HTTPHeaders?) {
         self.init(url: url)
         httpMethod = method.rawValue
