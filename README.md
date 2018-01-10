@@ -59,7 +59,7 @@ dependencies: [
 ```
 
 ## Usage
-APIManager relies on users to create `APIServices` and  `APIReturnable` types relevent to the RESTful APIs they are working with.
+APIManager relies on users to create `APIServices` and  `APIReturnable` types relevent to the RESTful APIs they are working with. `APIServices` contain descriptions of various endpoints that return their responses as native swift objects.
 
 ### Making an APIReturnable Type
 
@@ -95,11 +95,11 @@ open class var headers: HTTPHeaders? {
 
 ```
 
-3. A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the `APIRequest` constructor that can take in data (as `HTTPParameters` and/or `JSON`). For example if you would like to get some user information by id the endpoint may look like this:
+3. A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the `APIRequest` constructor that can take in data (as `HTTPParameters` and/or `HTTPBody` as a json dictionary `[String: Any]`). For example if you would like to get user information by id, the endpoint may look like this:
 
 ```swift
-open class func getUser(byId id: Int) -> APIRequest<ExampleService, ExampleReturnType> {
-    return APIRequest<ExampleService, ExampleReturnType>(endpoint: "/users", params: ["id": id], body: nil, method: .GET)
+open class func getUser(byId id: Int) -> APIRequest<ExampleReturnType> {
+    return APIRequest<ExampleReturnType>(service: Self, endpoint: "/users", params: ["id": id], body: nil, method: .GET)
 }
 
 ```
@@ -121,11 +121,11 @@ And subsecquently perform the `APIRequest` with:
 request.perform(withAuthorization: nil)
 ```
 
-However, this leaves us unable to access the json response or error as well as requires multiple lines to do what is really one action. Conveniently `APIManager` allows us to solve this problems with simple chaining syntax. We can specify both success and failure blocks to be called with the response json (validated by our APIService) and error respectively. We can perform the request in the same statement as seen below:
+However, this leaves us unable to access the response nor potential error and additionally requires multiple lines to do what is really one action. Conveniently `APIManager` allows us to solve this problems with simple chaining syntax. We can specify success, cancellation, and failure blocks. This new request is seen below:
 
 ```swift
 ExampleService.getUser(byId: 452398)
-.onSuccess { (json) in
+.onSuccess { (returnValue: ReturnType) in
     // Handle Success (Background thread)
     DispatchQueue.main.async {
         // Handle Success (main thread)
