@@ -1,6 +1,20 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.2.0](https://github.com/rauhul/api-manager/releases/tag/0.2.0)
+Released on 2018-1-10.
+
+#### Added
+- Failure callback uses swift error type instead of string
+- APIService to filter requests by HTTPResponseCode
+- APIRequestTokens and abillity to cancel requests
+- Cancellation callback
+
+#### Fixed
+- APIRequest retain cycle
+- Refactor APIService into APIRequest property
+- Potential race conditions
+
 ## [0.1.1](https://github.com/rauhul/api-manager/releases/tag/0.1.1)
 Released on 2017-10-18.
 
