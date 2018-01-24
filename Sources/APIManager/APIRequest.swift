@@ -78,7 +78,7 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// Creates a `URLRequest` representing the `APIRequest`.
     private var urlRequest: URLRequest {
         // add authorization into the HTTPParameters or HTTPBody as needed.
-        let (paramaters, body) = authorization?.embedInto(request: self) ?? (self.params, self.body)
+        let (paramaters, body, headers) = authorization?.embedInto(request: self) ?? (self.params, self.body, nil)
 
         let url = URL(base: service.baseURL + endpoint, paramaters: paramaters)!
 
@@ -86,7 +86,15 @@ open class APIRequest<ReturnType: APIReturnable> {
             print("🚀", method.rawValue, url.absoluteString)
         #endif
 
-        return URLRequest(url: url, method: method, body: body, headers: service.headers)
+        var request = URLRequest(url: url, method: method, body: body, headers: service.headers)
+
+        if let headers = headers {
+            for (field, value) in headers {
+                request.addValue(value, forHTTPHeaderField: field)
+            }
+        }
+
+        return request
     }
 
     /// Creates a `URLSessionDataTask` representing the `APIRequest`.
