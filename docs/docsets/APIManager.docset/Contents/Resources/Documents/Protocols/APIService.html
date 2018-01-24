@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0" />
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
@@ -14,216 +15,315 @@
     <a title="APIService Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">APIManager Docs</a> (98% documented)</p>
+        <p>
+          <a href="../index.html">APIManager Docs</a>
+          <span class="no-mobile"> (100% documented)</span>
+        </p>
+    
+    
       </div>
     </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">APIManager Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        APIService Protocol Reference
-      </p>
+    <div id="breadcrumbs-container">
+      <div class="content-wrapper">
+        <p id="breadcrumbs">
+          <span class="no-mobile">
+            <a href="../index.html">APIManager Reference</a>
+            <img id="carat" src="../img/carat.png" />
+          </span>
+          APIService Protocol Reference
+        </p>
+      </div>
     </div>
-    <div class="content-wrapper">
-      <nav class="sidebar">
-        <ul class="nav-groups">
-          <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/APIRequest.html">APIRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/APIRequestToken.html">APIRequestToken</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/APIRequestError.html">APIRequestError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/APIRequestState.html">APIRequestState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/URL.html">URL</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/URLRequest.html">URLRequest</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/APIReturnable.html">APIReturnable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/APIService.html">APIService</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Typealiases.html">Type Aliases</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <article class="main-content">
-        <section>
-          <section class="section">
-            <h1>APIService</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">APIService</span></code></pre>
+    <div class="wrapper">
+      <div class="article-wrapper">
+        <article class="main-content">
+          <section>
+            <section class="section">
+              <h1>APIService</h1>
+                <div class="declaration">
+                  <div class="language">
+                    <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">APIService</span></code></pre>
 
+                  </div>
                 </div>
-              </div>
-            <p><code>APIService</code> defines all the properties and methods a class must contain to be used as a service in an <code><a href="../Classes/APIRequest.html">APIRequest</a></code>.</p>
+              <p><code>APIService</code> defines all the properties and methods a class must contain to be used as a service in an <code><a href="../Classes/APIRequest.html">APIRequest</a></code>.</p>
 
 <p>A class that conforms to APIService should also define all the endpoints relevent to that service.</p>
 
 <p>An endpoint might look like:</p>
-<pre class="highlight plaintext"><code>open class func getUser(byId id: String) -&gt; APIRequest&lt;ReturnType&gt; {
-    return APIRequest&lt;ReturnType&gt;(endpoint: "/users", params: nil, body: ["id": id], method: .GET)
-}
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getUser</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ReturnType</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ReturnType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">endpoint</span><span class="p">:</span> <span class="s">"/users"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">id</span><span class="p">],</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="kt">GET</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre>
 
-          </section>
-          <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager10APIServiceP7baseURLSSvZ"></a>
-                    <a name="//apple_ref/swift/Variable/baseURL" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIServiceP7baseURLSSvZ">baseURL</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The base URL for this <code>APIService</code>.</p>
+            </section>
+            <section class="section task-group-section">
+              <div class="task-group">
+                <ul>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:10APIManager10APIServiceP7baseURLSSvpZ"></a>
+                      <a name="//apple_ref/swift/Variable/baseURL" class="dashAnchor"></a>
+                      <a class="token" href="#/s:10APIManager10APIServiceP7baseURLSSvpZ">baseURL</a>
+                      </code>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>The base URL for this <code>APIService</code>.</p>
 
 <p>Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service communicates with.</p>
 
 <p>A baseURL might look like: <code>https://api.example.com</code> with endpoints like: <code>/users</code> or <code>/schedule</code></p>
 
 <p>When interacting with more complicated APIs, it may be necessary to create subclasses of your service in order to maintain clean and readable code. In these cases the super-service should still have a baseURL as defined above. However the sub-services should have baseURLs of the form:</p>
-<pre class="highlight plaintext"><code>override open class var baseURL: String {
-    return super.baseURL + "/users"
-}
+<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">super</span><span class="o">.</span><span class="n">baseURL</span> <span class="o">+</span> <span class="s">"/users"</span>
+<span class="p">}</span>
 </code></pre>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:10APIManager10APIServiceP10parametersSDyS2SGSgvpZ"></a>
+                      <a name="//apple_ref/swift/Variable/parameters" class="dashAnchor"></a>
+                      <a class="token" href="#/s:10APIManager10APIServiceP10parametersSDyS2SGSgvpZ">parameters</a>
+                      </code>
+                        <span class="declaration-note">
+                          Default implementation
+                        </span>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>The <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> to be sent alongside the <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in this <code>APIService</code>.</p>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager10APIServiceP7headerss10DictionaryVyS2SGSgvZ"></a>
-                    <a name="//apple_ref/swift/Variable/headers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIServiceP7headerss10DictionaryVyS2SGSgvZ">headers</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> to be sent alongside the <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in this <code>APIService</code>. No headers are sent by default, so any and all headers must be specified here.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></span><span class="p">?</span></code></pre>
+                        <h4>Default Implementation</h4>
+                        <div class="default_impl abstract">
+                          <p>The <code>HTTPHeaders</code> to be sent alongside the <code>APIRequest</code>s made by the endpoints in this <code>APIService</code>.</p>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10APIManager10APIServiceP8validateySi10statusCode_tKFZ"></a>
-                    <a name="//apple_ref/swift/Method/validate(statusCode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10APIManager10APIServiceP8validateySi10statusCode_tKFZ">validate(statusCode:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Offers an optional point for an <code>APIService</code> to determine what HTTPReponse status codes are valid. The default implementation marks any response with a status code in the range 200..&lt;300 as valid.</p>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:10APIManager10APIServiceP4bodySDySSypGSgvpZ"></a>
+                      <a name="//apple_ref/swift/Variable/body" class="dashAnchor"></a>
+                      <a class="token" href="#/s:10APIManager10APIServiceP4bodySDySSypGSgvpZ">body</a>
+                      </code>
+                        <span class="declaration-note">
+                          Default implementation
+                        </span>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>The <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> to be sent alongside the <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in this <code>APIService</code>.</p>
+
+                        </div>
+                        <h4>Default Implementation</h4>
+                        <div class="default_impl abstract">
+                          <p>The <code>HTTPHeaders</code> to be sent alongside the <code>APIRequest</code>s made by the endpoints in this <code>APIService</code>.</p>
+
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:10APIManager10APIServiceP7headersSDyS2SGSgvpZ"></a>
+                      <a name="//apple_ref/swift/Variable/headers" class="dashAnchor"></a>
+                      <a class="token" href="#/s:10APIManager10APIServiceP7headersSDyS2SGSgvpZ">headers</a>
+                      </code>
+                        <span class="declaration-note">
+                          Default implementation
+                        </span>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>The <code><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> to be sent alongside the <code><a href="../Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in this <code>APIService</code>.</p>
+
+                        </div>
+                        <h4>Default Implementation</h4>
+                        <div class="default_impl abstract">
+                          <p>The <code>HTTPHeaders</code> to be sent alongside the <code>APIRequest</code>s made by the endpoints in this <code>APIService</code>.</p>
+
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:10APIManager10APIServiceP8validate10statusCodeySi_tKFZ"></a>
+                      <a name="//apple_ref/swift/Method/validate(statusCode:)" class="dashAnchor"></a>
+                      <a class="token" href="#/s:10APIManager10APIServiceP8validate10statusCodeySi_tKFZ">validate(statusCode:)</a>
+                      </code>
+                        <span class="declaration-note">
+                          Default implementation
+                        </span>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>Offers an optional point for an <code>APIService</code> to determine what HTTPReponse status codes are valid. The default implementation marks any response with a status code in the range 200..&lt;300 as valid.</p>
 
 <p>To change this behavior, simiply override this method and throw an APIRequestError.invalidHTTPReponse for any invalid response codes.</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Default implementation of validate that marks any response with a status code in the range 200..&lt;300 as valid.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">validate</span><span class="p">(</span><span class="nv">statusCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                        </div>
+                        <h4>Default Implementation</h4>
+                        <div class="default_impl abstract">
+                          <p>Default implementation of validate that marks any response with a status code in the range 200..&lt;300 as valid.</p>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">validate</span><span class="p">(</span><span class="nv">statusCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </section>
+        </article>
+      </div>
+      <div class="nav-wrapper">
+        <nav class="nav-bottom">
+          <ul class="nav-groups">
+            <li class="nav-group-name">
+              <a href="../Classes.html">Classes</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Classes/APIRequest.html">APIRequest</a>
                 </li>
               </ul>
-            </div>
-          </section>
-        </section>
+            </li>
+            <li class="nav-group-name">
+              <a href="../Enums.html">Enumerations</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Enums/APIRequestError.html">APIRequestError</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Enums/APIRequestState.html">APIRequestState</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Enums/Result.html">Result</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="../Extensions.html">Extensions</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Extensions/Dictionary.html">Dictionary</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Extensions/OperationQueue.html">OperationQueue</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="../Protocols.html">Protocols</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Protocols/APIReturnable.html">APIReturnable</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Protocols/APIService.html">APIService</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="../Typealiases.html">Type Aliases</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-wrapper">
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2018-01-09)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2019-01-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
-      </article>
+      </div>
     </div>
   </body>
 </div>

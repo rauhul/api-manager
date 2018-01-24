@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "APIManager"
-  s.version      = "0.2.0"
+  s.version      = "0.3.0"
   s.summary      = "RESTful API Manager"
 
   s.description  = <<-DESC

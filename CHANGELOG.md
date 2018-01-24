@@ -1,6 +1,27 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.3.0](https://github.com/rauhul/api-manager/releases/tag/0.3.0)
+Released on 2018-1-6.
+
+#### Added
+- Completion callback returns modified Swift.Result in preparation for Swift 5.0
+- APIRequests subclass Operation to simplify dependency chaining and cancellation
+- Hosted documentation
+
+#### Fixed
+- APIService can provide parameters, bodies, headers common to all requests within the service
+- APIAuthorization can can provide parameters, bodies, headers specific to a request
+- HTTPParameters, HTTPBody, and HTTPHeaders are now optional instead of empty dictionaries
+- Updated documentation
+
+#### Removed
+- Success callback
+- Cancellation callback
+- Failure callback
+- APIRequestTokens, the APIRequest can be directly used
+
+
 ## [0.2.0](https://github.com/rauhul/api-manager/releases/tag/0.2.0)
 Released on 2018-1-10.
 

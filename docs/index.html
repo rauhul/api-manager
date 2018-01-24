@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0" />
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
@@ -13,93 +14,37 @@
     <a title="APIManager  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">APIManager Docs</a> (98% documented)</p>
+        <p>
+          <a href="index.html">APIManager Docs</a>
+          <span class="no-mobile"> (100% documented)</span>
+        </p>
+    
+    
       </div>
     </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="index.html">APIManager Reference</a>
-        <img id="carat" src="img/carat.png" />
-        APIManager  Reference
-      </p>
+    <div id="breadcrumbs-container">
+      <div class="content-wrapper">
+        <p id="breadcrumbs">
+          <span class="no-mobile">
+            <a href="index.html">APIManager Reference</a>
+            <img id="carat" src="img/carat.png" />
+          </span>
+          APIManager  Reference
+        </p>
+      </div>
     </div>
-    <div class="content-wrapper">
-      <nav class="sidebar">
-        <ul class="nav-groups">
-          <li class="nav-group-name">
-            <a href="Classes.html">Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Classes/APIRequest.html">APIRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/APIRequestToken.html">APIRequestToken</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/APIRequestError.html">APIRequestError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/APIRequestState.html">APIRequestState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/HTTPMethod.html">HTTPMethod</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Extensions/URL.html">URL</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/URLRequest.html">URLRequest</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Protocols/APIAuthorization.html">APIAuthorization</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/APIReturnable.html">APIReturnable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/APIService.html">APIService</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Typealiases.html">Type Aliases</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <article class="main-content">
-        <section>
-          <section class="section">
-            
-            <!--- https://img.shields.io/badge/<SUBJECT>-<STATUS>-<COLOR>.svg &mdash;>
-<h1 id='apimanager' class='heading'>APIManager</h1>
+    <div class="wrapper">
+      <div class="article-wrapper">
+        <article class="main-content">
+          <section>
+            <section class="section">
+              
+              <h1 id='apimanager' class='heading'>APIManager</h1>
 
-<p><a href="https://github.com/apple/swift"><img src="https://img.shields.io/badge/swift-v4.0.3-orange.svg" alt="Swift Version"></a>
+<p><a href="https://github.com/apple/swift"><img src="https://img.shields.io/badge/swift-v4.2-orange.svg" alt="Swift Version"></a>
 <a href="https://travis-ci.org/rauhul/api-manager"><img src="https://travis-ci.org/rauhul/api-manager.svg?branch=master" alt="Build Status"></a>
-<a href="http://htmlpreview.github.io/?https://github.com/rauhul/api-manager/blob/master/docs/index.html"><img src="https://github.com/rauhul/api-manager/blob/master/docs/badge.svg" alt="Documentation Converage"></a>
-<a href="https://github.com/rauhul/api-manager/releases"><img src="https://img.shields.io/badge/release-v0.1.1-ff69b4.svg" alt="Release Version"></a>
+<a href="https://rauhul.me/api-manager/"><img src="https://raw.githubusercontent.com/rauhul/api-manager/master/docs/badge.svg?sanitize=true" alt="Documentation Converage"></a>
+<a href="https://github.com/rauhul/api-manager/releases"><img src="https://img.shields.io/badge/release-v0.2.0-ff69b4.svg" alt="Release Version"></a>
 <a href="https://raw.githubusercontent.com/rauhul/api-manager/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub License"></a></p>
 
 <p>APIManager is a framework for abstracting RESTful API requests.</p>
@@ -114,7 +59,7 @@
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
+<pre class="highlight shell"><code><span class="nv">$ </span>gem <span class="nb">install </span>cocoapods
 </code></pre>
 
 <blockquote>
@@ -127,12 +72,12 @@
 <span class="n">use_frameworks!</span>
 
 <span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">'APIManager'</span><span class="p">,</span> <span class="s1">'~&gt; 0.1.1'</span>
+    <span class="n">pod</span> <span class="s1">'APIManager'</span><span class="p">,</span> <span class="s1">'~&gt; 0.2.0'</span>
 <span class="k">end</span>
 </code></pre>
 
 <p>Then, run the following command:</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+<pre class="highlight shell"><code><span class="nv">$ </span>pod <span class="nb">install</span>
 </code></pre>
 <h4 id='note' class='heading'>Note</h4>
 
@@ -143,12 +88,12 @@
 
 <p>Once you have your Swift package set up, adding APIManager as a dependency is as easy as adding it to the <code>dependencies</code> value of your <code>Package.swift</code>.</p>
 <pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-    <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/rauhul/api-manager.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"0.1.1"</span><span class="p">)</span>
+    <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/rauhul/api-manager.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"0.2.0"</span><span class="p">)</span>
 <span class="p">]</span>
 </code></pre>
 <h2 id='usage' class='heading'>Usage</h2>
 
-<p>APIManager relies on users to create <code>APIServices</code> and  <code><a href="Protocols/APIReturnable.html">APIReturnable</a></code> types relevent to the RESTful APIs they are working with.</p>
+<p>APIManager relies on users to create <code>APIServices</code> and  <code><a href="Protocols/APIReturnable.html">APIReturnable</a></code> types relevent to the RESTful APIs they are working with. <code>APIServices</code> contain descriptions of various endpoints that return their responses as native swift objects.</p>
 <h3 id='making-an-apireturnable-type' class='heading'>Making an APIReturnable Type</h3>
 
 <p>An APIReturnable Type only needs to conform to one method  <code>init(from: Data) throws</code>. APIManager extends <code>Decodable</code> types to also be <code><a href="Protocols/APIReturnable.html">APIReturnable</a></code>. An example implementation can be found below:</p>
@@ -165,7 +110,7 @@
 <ol>
 <li>A <code>baseURL</code>. Endpoints in this service will be postpended to this URL segment. As a result a baseURL will generally look like the root URL of the API the service communicates with.</li>
 </ol>
-<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s">"https://api.example.com"</span>
 <span class="p">}</span>
 </code></pre>
@@ -173,7 +118,7 @@
 <ol>
 <li><code><a href="Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></code> to be sent alongside the <code><a href="Classes/APIRequest.html">APIRequest</a></code>s made by the endpoints in your <code><a href="Protocols/APIService.html">APIService</a></code>.</li>
 </ol>
-<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span><span class="p">?</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">HTTPHeaders</span><span class="p">?</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
     <span class="p">]</span>
@@ -182,10 +127,10 @@
 </code></pre>
 
 <ol>
-<li>A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the <code><a href="Classes/APIRequest.html">APIRequest</a></code> constructor that can take in data (as <code><a href="Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></code> and/or <code>JSON</code>). For example if you would like to get some user information by id the endpoint may look like this:</li>
+<li>A set of RESTful api endpoints that you would like to use. These should be simple wrappers around the <code><a href="Classes/APIRequest.html">APIRequest</a></code> constructor that can take in data (as <code><a href="Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></code> and/or <code><a href="Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a></code> as a json dictionary <code>[String: Any]</code>). For example if you would like to get user information by id, the endpoint may look like this:</li>
 </ol>
-<pre class="highlight swift"><code><span class="n">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getUser</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ExampleService</span><span class="p">,</span> <span class="kt">ExampleReturnType</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ExampleService</span><span class="p">,</span> <span class="kt">ExampleReturnType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">endpoint</span><span class="p">:</span> <span class="s">"/users"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">id</span><span class="p">],</span> <span class="nv">body</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="kt">GET</span><span class="p">)</span>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">getUser</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ExampleReturnType</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ExampleReturnType</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">service</span><span class="p">:</span> <span class="k">Self</span><span class="p">,</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="s">"/users"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">id</span><span class="p">],</span> <span class="nv">body</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="kt">GET</span><span class="p">)</span>
 <span class="p">}</span>
 
 </code></pre>
@@ -203,9 +148,9 @@
 <pre class="highlight swift"><code><span class="n">request</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="nv">withAuthorization</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre>
 
-<p>However, this leaves us unable to access the json response or error as well as requires multiple lines to do what is really one action. Conveniently <code>APIManager</code> allows us to solve this problems with simple chaining syntax. We can specify both success and failure blocks to be called with the response json (validated by our APIService) and error respectively. We can perform the request in the same statement as seen below:</p>
+<p>However, this leaves us unable to access the response nor potential error and additionally requires multiple lines to do what is really one action. Conveniently <code>APIManager</code> allows us to solve this problems with simple chaining syntax. We can specify success, cancellation, and failure blocks. This new request is seen below:</p>
 <pre class="highlight swift"><code><span class="kt">ExampleService</span><span class="o">.</span><span class="nf">getUser</span><span class="p">(</span><span class="nv">byId</span><span class="p">:</span> <span class="mi">452398</span><span class="p">)</span>
-<span class="o">.</span><span class="n">onSuccess</span> <span class="p">{</span> <span class="p">(</span><span class="n">json</span><span class="p">)</span> <span class="k">in</span>
+<span class="o">.</span><span class="n">onSuccess</span> <span class="p">{</span> <span class="p">(</span><span class="nv">returnValue</span><span class="p">:</span> <span class="kt">ReturnType</span><span class="p">)</span> <span class="k">in</span>
     <span class="c1">// Handle Success (Background thread)</span>
     <span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
         <span class="c1">// Handle Success (main thread)</span>
@@ -229,13 +174,89 @@
 
 <p>This project is licensed under the MIT License. For a full copy of this license take a look at the LICENSE file.</p>
 
+            </section>
           </section>
-        </section>
+        </article>
+      </div>
+      <div class="nav-wrapper">
+        <nav class="nav-bottom">
+          <ul class="nav-groups">
+            <li class="nav-group-name">
+              <a href="Classes.html">Classes</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="Classes/APIRequest.html">APIRequest</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="Enums.html">Enumerations</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="Enums/APIRequestError.html">APIRequestError</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Enums/APIRequestState.html">APIRequestState</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Enums/HTTPMethod.html">HTTPMethod</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Enums/Result.html">Result</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="Extensions.html">Extensions</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="Extensions/Dictionary.html">Dictionary</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Extensions/OperationQueue.html">OperationQueue</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="Protocols.html">Protocols</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="Protocols/APIAuthorization.html">APIAuthorization</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Protocols/APIReturnable.html">APIReturnable</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Protocols/APIService.html">APIService</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="Typealiases.html">Type Aliases</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-wrapper">
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2018-01-09)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2019-01-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
-      </article>
+      </div>
     </div>
   </body>
 </div>

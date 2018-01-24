@@ -3,31 +3,21 @@ import XCTest
 
 class APIManagerTests: XCTestCase {
 
-    var request: APIRequestToken?
-
-    override func tearDown() {
-        request = nil
-        super.tearDown()
-    }
-
     func testGetRequest() {
         let complete = expectation(description: "Get request completion")
 
         TestService.get()
-        .onSuccess { (json) in
-            let url = json.rawDictionary["url"] as? String
-            XCTAssertEqual(url, "https://httpbin.org/get")
+        .onCompletion { (result) in
+            do {
+                let json = try result.get().0
+                let url = json.rawDictionary["url"] as? String
+                XCTAssertEqual(url, "https://httpbin.org/get")
+            } catch {
+                XCTAssert(false, error.localizedDescription)
+            }
             complete.fulfill()
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .onCancellation {
-            XCTAssert(false, "Request Cancelled")
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -35,17 +25,21 @@ class APIManagerTests: XCTestCase {
     func testPostRequest() {
         let complete = expectation(description: "Post request completion")
 
-        request = TestService.post()
-        .onSuccess { (json) in
-            let url = json.rawDictionary["url"] as? String
-            XCTAssertEqual(url, "https://httpbin.org/post")
-            complete.fulfill()
+        TestService.post()
+        .onCompletion { (result) in
+            switch result {
+            case .success(let json, _):
+                let url = json.rawDictionary["url"] as? String
+                XCTAssertEqual(url, "https://httpbin.org/post")
+                complete.fulfill()
+
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+                complete.fulfill()
+
+            }
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -53,16 +47,20 @@ class APIManagerTests: XCTestCase {
     func testHeadRequest() {
         let complete = expectation(description: "Head request completion")
 
-        request = TestService.head()
-        .onSuccess { (data) in
-            XCTAssertTrue(data.isEmpty)
-            complete.fulfill()
+        TestService.head()
+        .onCompletion { (result) in
+            switch result {
+            case .success(let data, _):
+                XCTAssertTrue(data.isEmpty)
+                complete.fulfill()
+
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+                complete.fulfill()
+
+            }
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -70,17 +68,21 @@ class APIManagerTests: XCTestCase {
     func testPutRequest() {
         let complete = expectation(description: "Put request completion")
 
-        request = TestService.put()
-        .onSuccess { (json) in
-            let url = json.rawDictionary["url"] as? String
-            XCTAssertEqual(url, "https://httpbin.org/put")
-            complete.fulfill()
+        TestService.put()
+        .onCompletion { (result) in
+            switch result {
+            case .success(let json, _):
+                let url = json.rawDictionary["url"] as? String
+                XCTAssertEqual(url, "https://httpbin.org/put")
+                complete.fulfill()
+
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+                complete.fulfill()
+
+            }
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -88,17 +90,21 @@ class APIManagerTests: XCTestCase {
     func testDeleteRequest() {
         let complete = expectation(description: "Delete request completion")
 
-        request = TestService.delete()
-        .onSuccess { (json) in
-            let url = json.rawDictionary["url"] as? String
-            XCTAssertEqual(url, "https://httpbin.org/delete")
-            complete.fulfill()
+        TestService.delete()
+        .onCompletion { (result) in
+            switch result {
+            case .success(let json, _):
+                let url = json.rawDictionary["url"] as? String
+                XCTAssertEqual(url, "https://httpbin.org/delete")
+                complete.fulfill()
+
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+                complete.fulfill()
+
+            }
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -106,16 +112,20 @@ class APIManagerTests: XCTestCase {
     func testOptionsRequest() {
         let complete = expectation(description: "Options request completion")
 
-        request = TestService.options()
-        .onSuccess { (data) in
-            XCTAssertTrue(data.isEmpty)
-            complete.fulfill()
+        TestService.options()
+        .onCompletion { (result) in
+            switch result {
+            case .success(let data, _):
+                XCTAssertTrue(data.isEmpty)
+                complete.fulfill()
+
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+                complete.fulfill()
+
+            }
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }
@@ -123,17 +133,21 @@ class APIManagerTests: XCTestCase {
     func testPatchRequest() {
         let complete = expectation(description: "Patch request completion")
 
-        request = TestService.patch()
-        .onSuccess { (json) in
-            let url = json.rawDictionary["url"] as? String
-            XCTAssertEqual(url, "https://httpbin.org/patch")
-            complete.fulfill()
+        TestService.patch()
+        .onCompletion { (result) in
+            switch result {
+            case .success(let json, _):
+                let url = json.rawDictionary["url"] as? String
+                XCTAssertEqual(url, "https://httpbin.org/patch")
+                complete.fulfill()
+
+            case .failure(let error):
+                XCTAssert(false, error.localizedDescription)
+                complete.fulfill()
+
+            }
         }
-        .onFailure { (error) in
-            XCTAssert(false, error.localizedDescription)
-            complete.fulfill()
-        }
-        .perform()
+        .launch()
 
         waitForExpectations(timeout: 5.0, handler: nil)
     }

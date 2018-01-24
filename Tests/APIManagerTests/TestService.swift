@@ -13,8 +13,6 @@ class TestService: APIService {
 
     static var baseURL: String = "https://httpbin.org"
 
-    static var headers: HTTPHeaders?
-
     open class func get() -> APIRequest<JSON> {
         return APIRequest<JSON>(service: self, endpoint: "/get", method: .GET)
     }
