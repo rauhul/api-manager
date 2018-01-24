@@ -12,11 +12,11 @@ import Foundation
 extension URLRequest {
 
     /// Initializer for creating a URLRequest with an HTTPMethod, HTTPBody, and HTTPHeaders.
-    init(url: URL, method: HTTPMethod, body: HTTPBody?, headers: HTTPHeaders?) {
+    init(url: URL, method: HTTPMethod, body: HTTPBody, headers: HTTPHeaders) {
         self.init(url: url)
         httpMethod = method.rawValue
 
-        if let body = body {
+        if !body.isEmpty {
             do {
                 let requestData = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
                 httpBody = requestData
@@ -27,7 +27,7 @@ extension URLRequest {
             }
         }
 
-        if let headers = headers {
+        if !headers.isEmpty {
             for (field, value) in headers {
                 addValue(value, forHTTPHeaderField: field)
             }

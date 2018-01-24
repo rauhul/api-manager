@@ -13,14 +13,14 @@ import Foundation
 open class APIRequest<ReturnType: APIReturnable> {
 
     // MARK: - Types & Aliases
-    /// Alias for the callback when an `APIRequest` succeeds, called with the json response.
-    public typealias Success = (_ returnValue: ReturnType) -> Void
+    public enum APIRequestResult {
+        case success(ReturnType)
+        case cancellation
+        case failure(Error)
+    }
 
-    /// Alias for the callback when a `APIRequest` fails, called with the error description.
-    public typealias Failure = (_ error: Error) -> Void
-
-    /// Alias for the callback when an `APIRequest` is cancelled. No additional data is provided.
-    public typealias Cancellation = () -> Void
+    /// Alias for the callback when an `APIRequest` completes.
+    public typealias Completion = (APIRequestResult) -> Void
 
     // MARK: - Required Properties
     /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
@@ -29,72 +29,85 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// The `HTTPMethod` for the HTTP Request.
     open private(set) var method: HTTPMethod
 
+    /// The url parameters for the HTTP Request.
+    open private(set) var parameters: HTTPParameters
+
+    /// The json body for the HTTP Request.
+    open private(set) var body: HTTPBody
+
+    /// The headers for the HTTP Request.
+    open private(set) var headers: HTTPParameters
+
     // MARK: - Generics
     /// The `APIService` the `APIRequest` is part of.
     open private(set) var service: APIService.Type
 
     // MARK: - Optional Properties
-    /// The url parameters for the HTTP Request.
-    open private(set) var params: HTTPParameters?
-
-    /// The json body for the HTTP Request.
-    open private(set) var body: HTTPBody?
-
     /// The object used to authorize the request.
     open private(set) var authorization: APIAuthorization?
 
     // MARK: - Callbacks
-    /// The callback on a successful `APIRequest`, called with the an object of the ReturnType.
-    open private(set) var success: Success?
-
-    /// The callback on a failed `APIRequest`, called with the error.
-    open private(set) var failure: Failure?
-
-    /// The callback on a cancelled `APIRequest`.
-    open private(set) var cancellation: Cancellation?
+    /// The callback on a completed `APIRequest`, called with the result.
+    open private(set) var completion: Completion?
 
     /// The callback for the `URLRequest` used to make the `APIRequest`.
     private func urlRequestCallback(data: Data?, response: URLResponse?, error: Error?) {
         if let error = error {
             if (error as NSError).code == NSURLErrorCancelled {
-                cancellation?()
+                completion?(.cancellation)
             } else {
-                failure?(error)
+                completion?(.failure(error))
             }
         } else if let response = response as? HTTPURLResponse, let data = data {
             do {
                 try service.validate(statusCode: response.statusCode)
                 let returnValue = try ReturnType(from: data)
-                success?(returnValue)
+                completion?(.success(returnValue))
             } catch {
-                failure?(error)
+                completion?(.failure(error))
             }
         } else {
-            failure?(APIRequestError.internalError(description: "Unable parse returned data."))
+            completion?(.failure(APIRequestError.internalError(description: "Unable parse returned data.")))
         }
     }
 
     // MARK: - Generators
     /// Creates a `URLRequest` representing the `APIRequest`.
     private var urlRequest: URLRequest {
-        // add authorization into the HTTPParameters or HTTPBody as needed.
-        let (paramaters, body, headers) = authorization?.embedInto(request: self) ?? (self.params, self.body, nil)
 
-        let url = URL(base: service.baseURL + endpoint, paramaters: paramaters)!
+        func combine<K, V>(dictionarys: Dictionary<K, V>...) -> Dictionary<K, V> {
+            var combinedDictionary = Dictionary<K, V>()
+            for dictionary in dictionarys {
+                for (key, value) in dictionary {
+                    combinedDictionary[key] = value
+                }
+            }
+            return combinedDictionary
+        }
+
+        let serviceParamaters = service.paramaters
+        let serviceBody = service.body
+        let serviceHeaders = service.headers
+
+        let requestParameters = parameters
+        let requestBody = body
+        let requestHeaders = headers
+
+        let authParamaters = authorization?.parametersFor(request: self) ?? [:]
+        let authBody = authorization?.bodyFor(request: self) ?? [:]
+        let authHeaders = authorization?.headersFor(request: self) ?? [:]
+
+        let combinedParameters = combine(dictionarys: serviceParamaters, requestParameters, authParamaters)
+        let combinedBody = combine(dictionarys: serviceBody, requestBody, authBody)
+        let combinedHeaders = combine(dictionarys: serviceHeaders, requestHeaders, authHeaders)
+
+        let url = URL(base: service.baseURL + endpoint, paramaters: combinedParameters)!
+        print("🚀", method.rawValue, url.absoluteString)
 
         #if DEBUG
             print("🚀", method.rawValue, url.absoluteString)
         #endif
-
-        var request = URLRequest(url: url, method: method, body: body, headers: service.headers)
-
-        if let headers = headers {
-            for (field, value) in headers {
-                request.addValue(value, forHTTPHeaderField: field)
-            }
-        }
-
-        return request
+        return URLRequest(url: url, method: method, body: combinedBody, headers: combinedHeaders)
     }
 
     /// Creates a `URLSessionDataTask` representing the `APIRequest`.
@@ -110,42 +123,24 @@ open class APIRequest<ReturnType: APIReturnable> {
     ///     - body:         An optional json body for the HTTP Request.
     ///     - method:       The method for the HTTP Request.
     /// - note: Only to be used by a class that conforms to APIService.
-    public init(service: APIService.Type, endpoint: String, params: HTTPParameters? = nil, body: HTTPBody? = nil, method: HTTPMethod) {
+    public init(service: APIService.Type, endpoint: String, parameters: HTTPParameters = [:], body: HTTPBody = [:], headers: HTTPHeaders = [:], method: HTTPMethod) {
         self.service = service
         self.endpoint = endpoint
         self.body = body
-        self.params = params
+        self.parameters = parameters
+        self.headers = headers
         self.method = method
     }
 
     // MARK: - Setters
-    /// Sets the callback on a successful `APIRequest`, called with the an object of the ReturnType.
-    /// - parameters:
-    ///     - success: The block to be called on a successful request.
-    /// - returns: `self` for method chaining as needed.
-    @discardableResult
-    open func onSuccess(_ success: Success?) -> APIRequest {
-        self.success = success
-        return self
-    }
 
-    /// Sets the callback on a failed `APIRequest`, called with the error.
+    /// Sets the callback on a completed `APIRequest`, called with the result.
     /// - parameters:
-    ///     - failure: The block to be called on a failed request.
+    ///     - comepletion: The block to be called on a completed request.
     /// - returns: `self` for method chaining as needed.
     @discardableResult
-    open func onFailure(_ failure: Failure?) -> APIRequest {
-        self.failure = failure
-        return self
-    }
-
-    /// Sets the callback on a cancelled `APIRequest`.
-    /// - parameters:
-    ///     - cancellation: The block to be called on a cancelled request.
-    /// - returns: `self` for method chaining as needed.
-    @discardableResult
-    open func onCancellation(_ cancellation: Cancellation?) -> APIRequest {
-        self.cancellation = cancellation
+    open func onCompletion(_ completion: Completion?) -> APIRequest {
+        self.completion = completion
         return self
     }
 

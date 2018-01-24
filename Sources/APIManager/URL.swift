@@ -12,10 +12,10 @@ import Foundation
 extension URL {
 
     /// Initializer for creating a URL with a base string and optional URLParameters.
-    init?(base: String, paramaters: HTTPParameters?) {
+    init?(base: String, paramaters: HTTPParameters) {
         var urlString = base
 
-        if let paramaters = paramaters {
+        if !paramaters.isEmpty {
             urlString += "?" + paramaters.map { return "\($0)=\($1)" }.joined(separator: "&")
         }
 

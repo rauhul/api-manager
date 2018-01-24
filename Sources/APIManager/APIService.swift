@@ -35,8 +35,14 @@ public protocol APIService {
     /// ```
     static var baseURL: String { get }
 
-    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`. No headers are sent by default, so any and all headers must be specified here.
-    static var headers: HTTPHeaders? { get }
+    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
+    static var paramaters: HTTPParameters { get }
+
+    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
+    static var body: HTTPBody { get }
+
+    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
+    static var headers: HTTPHeaders { get }
 
     /// Offers an optional point for an `APIService` to determine what HTTPReponse status codes are valid. The default implementation marks any response with a status code in the range 200..<300 as valid.
     ///
@@ -46,6 +52,21 @@ public protocol APIService {
 
 /// Default implementations of APIService components
 public extension APIService {
+    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
+    static var paramaters: HTTPParameters {
+        return [:]
+    }
+
+    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
+    static var body: HTTPBody {
+        return [:]
+    }
+    
+    /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
+    static var headers: HTTPHeaders {
+        return [:]
+    }
+
     /// Default implementation of validate that marks any response with a status code in the range 200..<300 as valid.
     public static func validate(statusCode: Int) throws {
         if !(200..<300).contains(statusCode) {
