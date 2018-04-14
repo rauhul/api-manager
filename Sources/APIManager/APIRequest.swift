@@ -2,19 +2,36 @@
 //  APIRequest.swift
 //  APIManager
 //
-//  Created by Rauhul Varma on 4/21/17.
-//  Copyright © 2017 Rauhul Varma. All rights reserved.
+//  Created by Rauhul Varma on 4/14/18.
+//  Copyright © 2018 Rauhul Varma. All rights reserved.
 //
 
 import Foundation
 
+@objc private enum APIRequestState: Int {
+    case ready
+    case executing
+    case finished
+}
+
+open class APIRequestCenter {
+    static let `default` = APIRequestCenter()
+    private init() { }
+
+    let queue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 10
+        return queue
+    }()
+}
+
 /// Base class for creating APIRequests.
 /// - note: `APIRequests` should be created through a class that conforms to `APIService`.
-open class APIRequest<ReturnType: APIReturnable> {
+open class APIRequest<ReturnType: APIReturnable>: Operation {
 
     // MARK: - Types & Aliases
     public enum APIRequestResult {
-        case success(ReturnType)
+        case success(ReturnType, HTTPCookies)
         case cancellation
         case failure(Error)
     }
@@ -22,7 +39,31 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// Alias for the callback when an `APIRequest` completes.
     public typealias Completion = (APIRequestResult) -> Void
 
-    // MARK: - Required Properties
+    // MARK: - Operation Properties
+    /// DispatchQueue used to serialize access to `state`.
+    private let stateQueue = DispatchQueue(label: "com.rauhul.APIManager.stateQueue", attributes: .concurrent)
+
+    /// private variable backing `state`.
+    private var _state: APIRequestState = .ready
+
+    /// objc visible setter and getter for `_state`.
+    @objc private dynamic var state: APIRequestState {
+        get {
+            return stateQueue.sync { _state }
+        }
+        set {
+            stateQueue.sync(flags: .barrier) { _state = newValue }
+        }
+    }
+
+    open         override var isReady:        Bool { return state == .ready && super.isReady }
+    public final override var isExecuting:    Bool { return state == .executing }
+    public final override var isFinished:     Bool { return state == .finished }
+    public final override var isAsynchronous: Bool { return true }
+
+    private var dataTask: URLSessionDataTask?
+
+    // MARK: - API Properties
     /// The endpoint for the HTTP Request relative to the baseURL of the `service`.
     open private(set) var endpoint: String
 
@@ -38,37 +79,33 @@ open class APIRequest<ReturnType: APIReturnable> {
     /// The headers for the HTTP Request.
     open private(set) var headers: HTTPParameters
 
-    // MARK: - Generics
     /// The `APIService` the `APIRequest` is part of.
     open private(set) var service: APIService.Type
 
-    // MARK: - Optional Properties
     /// The object used to authorize the request.
     open private(set) var authorization: APIAuthorization?
 
-    // MARK: - Callbacks
+    /// Sets the authorization for an `APIRequest`.
+    /// - parameters:
+    ///     - authorization: The object used to authorize the request.
+    /// - returns: `self` for method chaining as needed.
+    @discardableResult
+    open func authorization(_ authorization: APIAuthorization?) -> APIRequest {
+        self.authorization = authorization
+        return self
+    }
+
     /// The callback on a completed `APIRequest`, called with the result.
     open private(set) var completion: Completion?
 
-    /// The callback for the `URLRequest` used to make the `APIRequest`.
-    private func urlRequestCallback(data: Data?, response: URLResponse?, error: Error?) {
-        if let error = error {
-            if (error as NSError).code == NSURLErrorCancelled {
-                completion?(.cancellation)
-            } else {
-                completion?(.failure(error))
-            }
-        } else if let response = response as? HTTPURLResponse, let data = data {
-            do {
-                try service.validate(statusCode: response.statusCode)
-                let returnValue = try ReturnType(from: data)
-                completion?(.success(returnValue))
-            } catch {
-                completion?(.failure(error))
-            }
-        } else {
-            completion?(.failure(APIRequestError.internalError(description: "Unable parse returned data.")))
-        }
+    /// Sets the callback on a completed `APIRequest`, called with the result.
+    /// - parameters:
+    ///     - comepletion: The block to be called on a completed request.
+    /// - returns: `self` for method chaining as needed.
+    @discardableResult
+    open func onCompletion(_ completion: Completion?) -> APIRequest {
+        self.completion = completion
+        return self
     }
 
     // MARK: - Generators
@@ -102,17 +139,12 @@ open class APIRequest<ReturnType: APIReturnable> {
         let combinedHeaders = combine(dictionarys: serviceHeaders, requestHeaders, authHeaders)
 
         let url = URL(base: service.baseURL + endpoint, paramaters: combinedParameters)!
-        print("🚀", method.rawValue, url.absoluteString)
 
         #if DEBUG
             print("🚀", method.rawValue, url.absoluteString)
         #endif
-        return URLRequest(url: url, method: method, body: combinedBody, headers: combinedHeaders)
-    }
 
-    /// Creates a `URLSessionDataTask` representing the `APIRequest`.
-    private var dataTask: URLSessionDataTask {
-        return URLSession.shared.dataTask(with: urlRequest, completionHandler: urlRequestCallback)
+        return URLRequest(url: url, method: method, body: combinedBody, headers: combinedHeaders)
     }
 
     // MARK: - Init
@@ -132,32 +164,69 @@ open class APIRequest<ReturnType: APIReturnable> {
         self.method = method
     }
 
-    // MARK: - Setters
-
-    /// Sets the callback on a completed `APIRequest`, called with the result.
-    /// - parameters:
-    ///     - comepletion: The block to be called on a completed request.
-    /// - returns: `self` for method chaining as needed.
-    @discardableResult
-    open func onCompletion(_ completion: Completion?) -> APIRequest {
-        self.completion = completion
-        return self
+    // MARK: - Operation
+    // MARK: Keypaths for KVC
+    @objc private dynamic class func keyPathsForValuesAffectingIsReady() -> Set<String> {
+        return [#keyPath(state)]
     }
 
-    /// Sets the authorization for an `APIRequest`.
-    /// - parameters:
-    ///     - authorization: The object used to authorize the request.
-    /// - returns: `self` for method chaining as needed.
-    @discardableResult
-    open func authorization(_ authorization: APIAuthorization?) -> APIRequest {
-        self.authorization = authorization
-        return self
+    @objc private dynamic class func keyPathsForValuesAffectingIsExecuting() -> Set<String> {
+        return [#keyPath(state)]
     }
 
-    /// Performs the APIRequest. On a successful request the `success` closure will be called with the an object of the ReturnType. On a failed request the `failure` closure will be called with the error. On a cancelled request the `cancellation` closure will be called.
-    /// - returns: an `APIRequestToken` so the request can be cancelled later and state can be observed.
-    @discardableResult
-    open func perform() -> APIRequestToken {
-        return APIRequestToken(dataTask)
+    @objc private dynamic class func keyPathsForValuesAffectingIsFinished() -> Set<String> {
+        return [#keyPath(state)]
+    }
+
+    // MARK: API
+    public final override func start() {
+        if isCancelled {
+            completion?(.cancellation)
+            return
+        }
+
+        state = .executing
+
+        dataTask = URLSession.shared.dataTask(with: urlRequest, completionHandler: urlRequestCallback)
+        dataTask?.resume()
+    }
+
+    /// The callback for the `URLRequest` used to make the `APIRequest`.
+    private func urlRequestCallback(data: Data?, response: URLResponse?, error: Error?) {
+        if let error = error {
+            if (error as NSError).code == NSURLErrorCancelled {
+                completion?(.cancellation)
+                state = .finished
+            } else {
+                completion?(.failure(error))
+                state = .finished
+            }
+        } else if let response = response as? HTTPURLResponse, let data = data {
+            do {
+                try service.validate(statusCode: response.statusCode)
+                let returnValue = try ReturnType(from: data)
+                completion?(.success(returnValue, response.allHeaderFields))
+                state = .finished
+            } catch {
+                completion?(.failure(error))
+                state = .finished
+            }
+        } else {
+            completion?(.failure(APIRequestError.internalError(description: "Unable parse returned data.")))
+            state = .finished
+        }
+    }
+
+    open override func cancel() {
+        dataTask?.cancel()
+        super.cancel()
+    }
+
+    open func launch(on queue: OperationQueue? = nil) {
+        if let queue = queue {
+            queue.addOperation(self)
+        } else {
+            APIRequestCenter.default.queue.addOperation(self)
+        }
     }
 }
