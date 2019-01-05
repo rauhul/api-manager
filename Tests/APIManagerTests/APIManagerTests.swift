@@ -8,21 +8,14 @@ class APIManagerTests: XCTestCase {
 
         TestService.get()
         .onCompletion { (result) in
-            switch result {
-            case .success(let json, _):
+            do {
+                let json = try result.retrieve().0
                 let url = json.rawDictionary["url"] as? String
                 XCTAssertEqual(url, "https://httpbin.org/get")
-                complete.fulfill()
-
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
-                complete.fulfill()
-
-            case .failure(let error):
+            } catch {
                 XCTAssert(false, error.localizedDescription)
-                complete.fulfill()
-
             }
+            complete.fulfill()
         }
         .launch()
 
@@ -38,10 +31,6 @@ class APIManagerTests: XCTestCase {
             case .success(let json, _):
                 let url = json.rawDictionary["url"] as? String
                 XCTAssertEqual(url, "https://httpbin.org/post")
-                complete.fulfill()
-
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
                 complete.fulfill()
 
             case .failure(let error):
@@ -63,10 +52,6 @@ class APIManagerTests: XCTestCase {
             switch result {
             case .success(let data, _):
                 XCTAssertTrue(data.isEmpty)
-                complete.fulfill()
-
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
                 complete.fulfill()
 
             case .failure(let error):
@@ -91,10 +76,6 @@ class APIManagerTests: XCTestCase {
                 XCTAssertEqual(url, "https://httpbin.org/put")
                 complete.fulfill()
 
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
-                complete.fulfill()
-
             case .failure(let error):
                 XCTAssert(false, error.localizedDescription)
                 complete.fulfill()
@@ -115,10 +96,6 @@ class APIManagerTests: XCTestCase {
             case .success(let json, _):
                 let url = json.rawDictionary["url"] as? String
                 XCTAssertEqual(url, "https://httpbin.org/delete")
-                complete.fulfill()
-
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
                 complete.fulfill()
 
             case .failure(let error):
@@ -142,10 +119,6 @@ class APIManagerTests: XCTestCase {
                 XCTAssertTrue(data.isEmpty)
                 complete.fulfill()
 
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
-                complete.fulfill()
-
             case .failure(let error):
                 XCTAssert(false, error.localizedDescription)
                 complete.fulfill()
@@ -166,10 +139,6 @@ class APIManagerTests: XCTestCase {
             case .success(let json, _):
                 let url = json.rawDictionary["url"] as? String
                 XCTAssertEqual(url, "https://httpbin.org/patch")
-                complete.fulfill()
-
-            case .cancellation:
-                XCTAssert(false, "Request Cancelled")
                 complete.fulfill()
 
             case .failure(let error):
