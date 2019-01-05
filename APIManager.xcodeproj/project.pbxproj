@@ -8,24 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		950B28D02019460B000B4445 /* APIManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BF04661EA9EEAB005536D0 /* APIManager.framework */; };
-		950B28D820194625000B4445 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 950B28D720194625000B4445 /* Info.plist */; };
 		950B28D92019464B000B4445 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745AF1FC14FB1005422F0 /* Data.swift */; };
 		950B28DA2019464B000B4445 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745B01FC14FB1005422F0 /* APIManagerTests.swift */; };
 		950B28DB2019464B000B4445 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745B11FC14FB1005422F0 /* JSON.swift */; };
 		950B28DC2019464B000B4445 /* TestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C745B21FC14FB1005422F0 /* TestService.swift */; };
 		9576842A2082914300B6FD98 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957684292082914300B6FD98 /* APIRequest.swift */; };
 		9594C4C520044275008A5AD6 /* APIRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594C4C420044275008A5AD6 /* APIRequestError.swift */; };
-		95AD7E652003267500EB981F /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E5E2003267500EB981F /* HTTPHeaders.swift */; };
 		95AD7E662003267500EB981F /* APIReturnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E5F2003267500EB981F /* APIReturnable.swift */; };
-		95AD7E672003267500EB981F /* HTTPParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E602003267500EB981F /* HTTPParameters.swift */; };
 		95AD7E682003267500EB981F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E612003267500EB981F /* APIService.swift */; };
 		95AD7E692003267500EB981F /* APIAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E622003267500EB981F /* APIAuthorization.swift */; };
-		95AD7E6A2003267500EB981F /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E632003267500EB981F /* HTTPBody.swift */; };
-		95AD7E6C2003268400EB981F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E6B2003268400EB981F /* HTTPMethod.swift */; };
+		95AD7E6A2003267500EB981F /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E632003267500EB981F /* HTTP.swift */; };
 		95AD7E6E2003284600EB981F /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E6D2003284600EB981F /* URL.swift */; };
-		95AD7E702003286900EB981F /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD7E6F2003286900EB981F /* URLRequest.swift */; };
 		95BF046B1EA9EEAB005536D0 /* APIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BF04691EA9EEAB005536D0 /* APIManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95D98A7C2082A8840028EF3A /* HTTPCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D98A7B2082A8840028EF3A /* HTTPCookies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,15 +40,11 @@
 		9523B01E1EAE9AFE009A0471 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		957684292082914300B6FD98 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		9594C4C420044275008A5AD6 /* APIRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestError.swift; sourceTree = "<group>"; };
-		95AD7E5E2003267500EB981F /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
 		95AD7E5F2003267500EB981F /* APIReturnable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIReturnable.swift; sourceTree = "<group>"; };
-		95AD7E602003267500EB981F /* HTTPParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPParameters.swift; sourceTree = "<group>"; };
 		95AD7E612003267500EB981F /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		95AD7E622003267500EB981F /* APIAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAuthorization.swift; sourceTree = "<group>"; };
-		95AD7E632003267500EB981F /* HTTPBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
-		95AD7E6B2003268400EB981F /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		95AD7E632003267500EB981F /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		95AD7E6D2003284600EB981F /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
-		95AD7E6F2003286900EB981F /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		95BF04661EA9EEAB005536D0 /* APIManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BF04691EA9EEAB005536D0 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		95BF046A1EA9EEAB005536D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +54,6 @@
 		95C745B21FC14FB1005422F0 /* TestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestService.swift; sourceTree = "<group>"; };
 		95D158AA1EB1008700008F35 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		95D158BF1EB109D200008F35 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		95D98A7B2082A8840028EF3A /* HTTPCookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,17 +148,12 @@
 			isa = PBXGroup;
 			children = (
 				95AD7E622003267500EB981F /* APIAuthorization.swift */,
-				9594C4C420044275008A5AD6 /* APIRequestError.swift */,
 				957684292082914300B6FD98 /* APIRequest.swift */,
+				9594C4C420044275008A5AD6 /* APIRequestError.swift */,
 				95AD7E5F2003267500EB981F /* APIReturnable.swift */,
 				95AD7E612003267500EB981F /* APIService.swift */,
-				95AD7E632003267500EB981F /* HTTPBody.swift */,
-				95AD7E5E2003267500EB981F /* HTTPHeaders.swift */,
-				95AD7E6B2003268400EB981F /* HTTPMethod.swift */,
-				95AD7E602003267500EB981F /* HTTPParameters.swift */,
+				95AD7E632003267500EB981F /* HTTP.swift */,
 				95AD7E6D2003284600EB981F /* URL.swift */,
-				95AD7E6F2003286900EB981F /* URLRequest.swift */,
-				95D98A7B2082A8840028EF3A /* HTTPCookies.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -231,16 +215,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Rauhul Varma";
 				TargetAttributes = {
 					950B28CA2019460B000B4445 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					95BF04651EA9EEAB005536D0 = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -268,7 +253,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950B28D820194625000B4445 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,17 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				95AD7E692003267500EB981F /* APIAuthorization.swift in Sources */,
-				95AD7E652003267500EB981F /* HTTPHeaders.swift in Sources */,
 				95AD7E6E2003284600EB981F /* URL.swift in Sources */,
 				95AD7E682003267500EB981F /* APIService.swift in Sources */,
 				9576842A2082914300B6FD98 /* APIRequest.swift in Sources */,
-				95AD7E6C2003268400EB981F /* HTTPMethod.swift in Sources */,
 				95AD7E662003267500EB981F /* APIReturnable.swift in Sources */,
-				95AD7E672003267500EB981F /* HTTPParameters.swift in Sources */,
-				95AD7E6A2003267500EB981F /* HTTPBody.swift in Sources */,
-				95D98A7C2082A8840028EF3A /* HTTPCookies.swift in Sources */,
+				95AD7E6A2003267500EB981F /* HTTP.swift in Sources */,
 				9594C4C520044275008A5AD6 /* APIRequestError.swift in Sources */,
-				95AD7E702003286900EB981F /* URLRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +315,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rauhul.APIManagerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -354,7 +333,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rauhul.APIManagerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -373,6 +352,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -435,6 +415,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -493,7 +474,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -513,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rauhul.APIManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

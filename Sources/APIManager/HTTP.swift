@@ -1,10 +1,17 @@
 //
-//  HTTPMethod.swift
+//  HTTP.swift
 //  APIManager
 //
-//  Created by Rauhul Varma on 1/7/18.
-//  Copyright © 2018 Rauhul Varma. All rights reserved.
+//  Created by Rauhul Varma on 4/21/17.
+//  Copyright © 2017 Rauhul Varma. All rights reserved.
 //
+
+public typealias HTTPBody = [String: Any]
+public typealias HTTPCookies = [AnyHashable: Any]
+
+/// `HTTPHeaders` are components of the header section of request and response messages in the Hypertext Transfer Protocol (HTTP). They define the operating parameters of an `APIRequest`.
+public typealias HTTPHeaders = [String: String]
+
 
 /// Enumeration of the HTTP methods
 public enum HTTPMethod: String {
@@ -23,3 +30,7 @@ public enum HTTPMethod: String {
     /// The PATCH method is used to apply partial modifications to a resource.
     case PATCH
 }
+
+/// `HTTPParameters` are set of querys used to access specific data via an `APIRequest`. These parameters will be postpended to a url in form `?key1=value1&key2=value...` etc.
+public typealias HTTPParameters = [String: String]
+
