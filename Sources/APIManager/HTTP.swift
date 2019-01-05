@@ -33,4 +33,3 @@ public enum HTTPMethod: String {
 
 /// `HTTPParameters` are set of querys used to access specific data via an `APIRequest`. These parameters will be postpended to a url in form `?key1=value1&key2=value...` etc.
 public typealias HTTPParameters = [String: String]
-

@@ -8,21 +8,29 @@
 
 import Foundation
 
-@objc private enum APIRequestState: Int {
-    case ready
-    case executing
-    case finished
-}
-
-open class APIRequestCenter {
-    static let `default` = APIRequestCenter()
-    private init() { }
-
-    let queue: OperationQueue = {
+public struct APIRequestCenter {
+    public static let queue: OperationQueue = {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 10
         return queue
     }()
+}
+
+/// Enumeration of the Errors that can occur during an APIRequest.
+public enum APIRequestError: Error {
+    /// occurs when an APIRequest gets a response with an invalid response code, provides a decription of the error code
+    case invalidHTTPReponse(code: Int, description: String)
+
+    /// occurs when an APIRequest encounters an inconsistancy it does not know how to handle, provides a decription of the error
+    case internalError(description: String)
+
+    case cancelled
+}
+
+@objc private enum APIRequestState: Int {
+    case ready
+    case executing
+    case finished
 }
 
 /// Base class for creating APIRequests.
@@ -32,8 +40,16 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
     // MARK: - Types & Aliases
     public enum APIRequestResult {
         case success(ReturnType, HTTPCookies)
-        case cancellation
         case failure(Error)
+
+        func retrieve() throws -> (ReturnType, HTTPCookies) {
+            switch self {
+            case .success(let returnVal, let cookies):
+                return (returnVal, cookies)
+            case .failure(let error):
+                throw error
+            }
+        }
     }
 
     /// Alias for the callback when an `APIRequest` completes.
@@ -71,13 +87,13 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
     open private(set) var method: HTTPMethod
 
     /// The url parameters for the HTTP Request.
-    open private(set) var parameters: HTTPParameters
+    open private(set) var parameters: HTTPParameters?
 
     /// The json body for the HTTP Request.
-    open private(set) var body: HTTPBody
+    open private(set) var body: HTTPBody?
 
     /// The headers for the HTTP Request.
-    open private(set) var headers: HTTPParameters
+    open private(set) var headers: HTTPParameters?
 
     /// The `APIService` the `APIRequest` is part of.
     open private(set) var service: APIService.Type
@@ -112,9 +128,10 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
     /// Creates a `URLRequest` representing the `APIRequest`.
     private var urlRequest: URLRequest {
 
-        func combine<K, V>(dictionarys: Dictionary<K, V>...) -> Dictionary<K, V> {
+        func combine<K, V>(dictionarys: Dictionary<K, V>?...) -> Dictionary<K, V> {
             var combinedDictionary = Dictionary<K, V>()
             for dictionary in dictionarys {
+                guard let dictionary = dictionary else { continue }
                 for (key, value) in dictionary {
                     combinedDictionary[key] = value
                 }
@@ -130,9 +147,9 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
         let requestBody = body
         let requestHeaders = headers
 
-        let authParamaters = authorization?.parametersFor(request: self) ?? [:]
-        let authBody = authorization?.bodyFor(request: self) ?? [:]
-        let authHeaders = authorization?.headersFor(request: self) ?? [:]
+        let authParamaters = authorization?.parametersFor(request: self)
+        let authBody = authorization?.bodyFor(request: self)
+        let authHeaders = authorization?.headersFor(request: self)
 
         let combinedParameters = combine(dictionarys: serviceParamaters, requestParameters, authParamaters)
         let combinedBody = combine(dictionarys: serviceBody, requestBody, authBody)
@@ -155,7 +172,12 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
     ///     - body:         An optional json body for the HTTP Request.
     ///     - method:       The method for the HTTP Request.
     /// - note: Only to be used by a class that conforms to APIService.
-    public init(service: APIService.Type, endpoint: String, parameters: HTTPParameters = [:], body: HTTPBody = [:], headers: HTTPHeaders = [:], method: HTTPMethod) {
+    public init(service: APIService.Type,
+                endpoint: String,
+                parameters: HTTPParameters? = nil,
+                body: HTTPBody? = nil,
+                headers: HTTPHeaders? = nil,
+                method: HTTPMethod) {
         self.service = service
         self.endpoint = endpoint
         self.body = body
@@ -181,7 +203,7 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
     // MARK: API
     public final override func start() {
         if isCancelled {
-            completion?(.cancellation)
+            completion?(.failure(APIRequestError.cancelled))
             return
         }
 
@@ -195,12 +217,11 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
     private func urlRequestCallback(data: Data?, response: URLResponse?, error: Error?) {
         if let error = error {
             if (error as NSError).code == NSURLErrorCancelled {
-                completion?(.cancellation)
-                state = .finished
+                completion?(.failure(APIRequestError.cancelled))
             } else {
                 completion?(.failure(error))
-                state = .finished
             }
+            state = .finished
         } else if let response = response as? HTTPURLResponse, let data = data {
             do {
                 try service.validate(statusCode: response.statusCode)
@@ -222,11 +243,13 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
         super.cancel()
     }
 
-    open func launch(on queue: OperationQueue? = nil) {
-        if let queue = queue {
-            queue.addOperation(self)
-        } else {
-            APIRequestCenter.default.queue.addOperation(self)
-        }
+    ///
+    /// - parameters:
+    ///     - queue: The OperationQueue to run the request on, will be run the default queue if none is specified.
+    /// - returns: `self` for method chaining as needed.
+    @discardableResult
+    open func launch(on queue: OperationQueue = APIRequestCenter.queue) -> APIRequest {
+        queue.addOperation(self)
+        return self
     }
 }
