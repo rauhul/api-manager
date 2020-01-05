@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
-	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0" />
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
@@ -15,163 +14,185 @@
     <a title="APIReturnable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p>
-          <a href="../index.html">APIManager Docs</a>
-          <span class="no-mobile"> (100% documented)</span>
-        </p>
-    
-    
+        <p><a href="../index.html">APIManager 0.4.0 Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/rauhul/api-manager"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
-    <div id="breadcrumbs-container">
-      <div class="content-wrapper">
-        <p id="breadcrumbs">
-          <span class="no-mobile">
-            <a href="../index.html">APIManager Reference</a>
-            <img id="carat" src="../img/carat.png" />
-          </span>
-          APIReturnable Protocol Reference
-        </p>
-      </div>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">APIManager Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        APIReturnable Protocol Reference
+      </p>
     </div>
-    <div class="wrapper">
-      <div class="article-wrapper">
-        <article class="main-content">
-          <section>
-            <section class="section">
-              <h1>APIReturnable</h1>
-                <div class="declaration">
-                  <div class="language">
-                    <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">APIReturnable</span></code></pre>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/APIRequest.html">APIRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/APIRequestError.html">APIRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/APIRequestState.html">APIRequestState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/OperationQueue.html">OperationQueue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/APIReturnable.html">APIReturnable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/APIService.html">APIService</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>APIReturnable</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">APIReturnable</span></code></pre>
 
-                  </div>
                 </div>
-              <p>Defines the methods required for an object to be returned by an <code><a href="../Protocols/APIService.html">APIService</a></code></p>
-
-            </section>
-            <section class="section task-group-section">
-              <div class="task-group">
-                <ul>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager13APIReturnableP4fromx10Foundation4DataV_tKcfc"></a>
-                      <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager13APIReturnableP4fromx10Foundation4DataV_tKcfc">init(from:)</a>
-                      </code>
-                        <span class="declaration-note">
-                          Default implementation
-                        </span>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Defines how to convert returned <code>Data</code> into an <code>APIReturnable</code> object</p>
-
-                        </div>
-                        <h4>Default Implementation</h4>
-                        <div class="default_impl abstract">
-                          <p>Conversion from <code>Data</code> to a <code>Decodable</code> type using a <code>JSONDecoder</code></p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                </ul>
               </div>
-            </section>
+            <p>Defines the methods required for an object to be returned by an <code><a href="../Protocols/APIService.html">APIService</a></code></p>
+
           </section>
-        </article>
-      </div>
-      <div class="nav-wrapper">
-        <nav class="nav-bottom">
-          <ul class="nav-groups">
-            <li class="nav-group-name">
-              <a href="../Classes.html">Classes</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Classes/APIRequest.html">APIRequest</a>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager13APIReturnableP4fromx10Foundation4DataV_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager13APIReturnableP4fromx10Foundation4DataV_tKcfc">init(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defines how to convert returned <code>Data</code> into an <code>APIReturnable</code> object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
                 </li>
               </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Enums.html">Enumerations</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Enums/APIRequestError.html">APIRequestError</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Enums/APIRequestState.html">APIRequestState</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Enums/Result.html">Result</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Extensions.html">Extensions</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Extensions/Dictionary.html">Dictionary</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Extensions/OperationQueue.html">OperationQueue</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Protocols.html">Protocols</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Protocols/APIReturnable.html">APIReturnable</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Protocols/APIService.html">APIService</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Typealiases.html">Type Aliases</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60Self%60:%20%60Decodable%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `Self`: `Decodable`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60Self%60:%20%60Decodable%60"></a>
+                  <h3 class="section-name"><p>Available where <code>Self</code>: <code>Decodable</code></p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager13APIReturnablePAASeRzrlE4fromx10Foundation4DataV_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager13APIReturnablePAASeRzrlE4fromx10Foundation4DataV_tKcfc">init(from:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Conversion from <code>Data</code> to a <code>Decodable</code> type using a <code>JSONDecoder</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
                 </li>
               </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer-wrapper">
-        <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2019-01-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+            </div>
+          </section>
         </section>
-      </div>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://rauhul.me" target="_blank" rel="external">rauhul</a>. All rights reserved. (Last updated: 2020-01-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
     </div>
   </body>
 </div>

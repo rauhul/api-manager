@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,23 +6,10 @@ import PackageDescription
 let package = Package(
     name: "APIManager",
     products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "APIManager",
-            targets: ["APIManager"])
-        ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .library(name: "APIManager", targets: ["APIManager"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(
-            name: "APIManager",
-            dependencies: []),
-        .testTarget(
-            name: "APIManagerTests",
-            dependencies: ["APIManager"])
+        .target(name: "APIManager", dependencies: []),
+        .testTarget(name: "APIManagerTests", dependencies: ["APIManager"])
     ]
 )

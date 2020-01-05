@@ -3,7 +3,7 @@
 //  APIManager
 //
 //  Created by Rauhul Varma on 4/21/17.
-//  Copyright © 2017 Rauhul Varma. All rights reserved.
+//  Copyright © 2020 Rauhul Varma. All rights reserved.
 //
 
 /// An `HTTPBody` is the data transmitted in an HTTP message immediately

@@ -3,7 +3,7 @@
 //  APIManager
 //
 //  Created by Rauhul Varma on 4/21/17.
-//  Copyright © 2017 Rauhul Varma. All rights reserved.
+//  Copyright © 2020 Rauhul Varma. All rights reserved.
 //
 
 import Foundation
@@ -53,16 +53,16 @@ public protocol APIService {
 /// Default implementations of APIService components
 public extension APIService {
     /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
-    static var parameters: HTTPParameters? { return nil }
+    static var parameters: HTTPParameters? { nil }
 
     /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
-    static var body: HTTPBody? { return nil }
+    static var body: HTTPBody? { nil }
     
     /// The `HTTPHeaders` to be sent alongside the `APIRequest`s made by the endpoints in this `APIService`.
-    static var headers: HTTPHeaders? { return nil }
+    static var headers: HTTPHeaders? { nil }
 
     /// Default implementation of validate that marks any response with a status code in the range 200..<300 as valid.
-    public static func validate(statusCode: Int) throws {
+    static func validate(statusCode: Int) throws {
         if !(200..<300).contains(statusCode) {
             let description = HTTPURLResponse.localizedString(forStatusCode: statusCode)
             throw APIRequestError.invalidHTTPReponse(code: statusCode, description: description)

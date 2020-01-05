@@ -1,47 +1,21 @@
 # APIManager
-[![Swift Version](https://img.shields.io/badge/swift-v4.2-orange.svg)](https://github.com/apple/swift)
+[![Swift Version](https://img.shields.io/badge/swift-v5.0-orange.svg)](https://github.com/apple/swift)
 [![Build Status](https://travis-ci.org/rauhul/api-manager.svg?branch=master)](https://travis-ci.org/rauhul/api-manager)
 [![Documentation Converage](https://raw.githubusercontent.com/rauhul/api-manager/master/docs/badge.svg?sanitize=true)](https://rauhul.me/api-manager/)
-[![Release Version](https://img.shields.io/badge/release-v0.2.0-ff69b4.svg)](https://github.com/rauhul/api-manager/releases)
+[![Release Version](https://img.shields.io/badge/release-v0.4.0-ff69b4.svg)](https://github.com/rauhul/api-manager/releases)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rauhul/api-manager/master/LICENSE)
 
 APIManager is a framework for abstracting RESTful API requests.
 
 ## Requirements
-- iOS 11.0+
-- Swift 4.2+
+- Swift 5.0+
+
+### Notes
+- APIManager 0.3.0 is the last version that supports cocoapods
+- APIManager 0.3.0 is the last release with Swift 4.2 support
+- APIManager 0.0.5 is the last release with Swift 3 support
 
 ## Installation
-
-### CocoaPods
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-> CocoaPods 1.0.0+ is required to build APIManager.
-
-To integrate APIManager into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '11.0'
-use_frameworks!
-
-target '<Your Target Name>' do
-    pod 'APIManager', '~> 0.3.0'
-end
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
-#### Note
-APIManager 0.0.5 is the last release with Swift 3 support
 
 ### Swift Package Manager
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
@@ -50,7 +24,7 @@ Once you have your Swift package set up, adding APIManager as a dependency is as
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.3.0")
+    .Package(url: "https://github.com/rauhul/api-manager.git", from: "0.4.0")
 ]
 ```
 

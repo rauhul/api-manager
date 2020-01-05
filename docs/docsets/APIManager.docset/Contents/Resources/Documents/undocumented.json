@@ -1,19 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequest.swift",
-      "line": 11,
-      "symbol": "APIRequestCenter",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/rauhul/Developer/api-manager/Sources/APIManager/APIRequest.swift",
-      "line": 12,
-      "symbol": "APIRequestCenter.queue",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/rauhul/Developer/api-manager"
 }

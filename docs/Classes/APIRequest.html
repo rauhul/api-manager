@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
-	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0" />
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
@@ -15,38 +14,97 @@
     <a title="APIRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p>
-          <a href="../index.html">APIManager Docs</a>
-          <span class="no-mobile"> (100% documented)</span>
-        </p>
-    
-    
+        <p><a href="../index.html">APIManager 0.4.0 Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/rauhul/api-manager"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
-    <div id="breadcrumbs-container">
-      <div class="content-wrapper">
-        <p id="breadcrumbs">
-          <span class="no-mobile">
-            <a href="../index.html">APIManager Reference</a>
-            <img id="carat" src="../img/carat.png" />
-          </span>
-          APIRequest Class Reference
-        </p>
-      </div>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">APIManager Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        APIRequest Class Reference
+      </p>
     </div>
-    <div class="wrapper">
-      <div class="article-wrapper">
-        <article class="main-content">
-          <section>
-            <section class="section">
-              <h1>APIRequest</h1>
-                <div class="declaration">
-                  <div class="language">
-                    <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ReturnType</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Operation</span> <span class="k">where</span> <span class="kt">ReturnType</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/APIReturnable.html">APIReturnable</a></span></code></pre>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/APIRequest.html">APIRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/APIRequestError.html">APIRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/APIRequestState.html">APIRequestState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/OperationQueue.html">OperationQueue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/APIReturnable.html">APIReturnable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/APIService.html">APIService</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>APIRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">APIRequest</span><span class="o">&lt;</span><span class="kt">ReturnType</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Operation</span> <span class="k">where</span> <span class="kt">ReturnType</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/APIReturnable.html">APIReturnable</a></span></code></pre>
 
-                  </div>
                 </div>
-              <p>Base class for creating an APIRequest.</p>
+              </div>
+            <p>Base class for creating an APIRequest.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     <code>APIRequest</code>s should be created through a class that conforms to
@@ -54,1058 +112,992 @@
 
 </div>
 
-            </section>
-            <section class="section task-group-section">
-              <div class="task-group">
-                <div class="task-name-container">
-                  <a name="/Types%20&amp;%20Aliases"></a>
-                  <a name="//apple_ref/swift/Section/Types &amp; Aliases" class="dashAnchor"></a>
-                  <a href="#/Types%20&amp;%20Aliases">
-                    <h3 class="section-name">Types &amp; Aliases</h3>
-                  </a>
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Types%20&amp;%20Aliases"></a>
+                <a name="//apple_ref/swift/Section/Types &amp; Aliases" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Types%20&amp;%20Aliases"></a>
+                  <h3 class="section-name"><p>Types &amp; Aliases</p>
+</h3>
                 </div>
-                <ul>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC10Completiona"></a>
-                      <a name="//apple_ref/swift/Alias/Completion" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC10Completiona">Completion</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Alias for the callback when an request completes.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Completion</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Enums/Result.html">Result</a></span><span class="o">&lt;</span><span class="p">(</span><span class="kt">ReturnType</span><span class="p">,</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a></span><span class="p">)</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                </ul>
               </div>
-              <div class="task-group">
-                <div class="task-name-container">
-                  <a name="/Implemenation%20Properties"></a>
-                  <a name="//apple_ref/swift/Section/Implemenation Properties" class="dashAnchor"></a>
-                  <a href="#/Implemenation%20Properties">
-                    <h3 class="section-name">Implemenation Properties</h3>
-                  </a>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC10Completiona"></a>
+                    <a name="//apple_ref/swift/Alias/Completion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC10Completiona">Completion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Alias for the callback when an request completes.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Completion</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">ReturnType</span><span class="p">,</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a></span><span class="p">),</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Implemenation%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Implemenation Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Implemenation%20Properties"></a>
+                  <h3 class="section-name"><p>Implemenation Properties</p>
+</h3>
                 </div>
-                <ul>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC10stateQueue33_4486BA43D99007C63BCA3765A21B025DLLSo17OS_dispatch_queueCvp"></a>
-                      <a name="//apple_ref/swift/Property/stateQueue" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC10stateQueue33_4486BA43D99007C63BCA3765A21B025DLLSo17OS_dispatch_queueCvp">stateQueue</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>DispatchQueue used to serialize access to <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">state</a></code>.</p>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC10stateQueue33_4486BA43D99007C63BCA3765A21B025DLLSo17OS_dispatch_queueCvp"></a>
+                    <a name="//apple_ref/swift/Property/stateQueue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC10stateQueue33_4486BA43D99007C63BCA3765A21B025DLLSo17OS_dispatch_queueCvp">stateQueue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>DispatchQueue used to serialize access to <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">state</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">stateQueue</span><span class="p">:</span> <span class="kt">DispatchQueue</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">stateQueue</span><span class="p">:</span> <span class="kt">DispatchQueue</span></code></pre>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC6_state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp"></a>
+                    <a name="//apple_ref/swift/Property/_state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC6_state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">_state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tracks state of the request; backs <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">state</a></code> property.</p>
 
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC6_state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp"></a>
-                      <a name="//apple_ref/swift/Property/_state" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC6_state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">_state</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Tracks state of the request; backs <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">state</a></code> property.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">_state</span><span class="p">:</span> <span class="kt"><a href="../Enums/APIRequestState.html">APIRequestState</a></span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp"></a>
-                      <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">state</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Objective-C visible setter and getter for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC6_state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">_state</a></code>.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">_state</span><span class="p">:</span> <span class="kt"><a href="../Enums/APIRequestState.html">APIRequestState</a></span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@objc</span>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC5state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Objective-C visible setter and getter for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC6_state33_4486BA43D99007C63BCA3765A21B025DLLAA0B5StateAELLOvp">_state</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
 <span class="kd">private</span> <span class="kd">dynamic</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Enums/APIRequestState.html">APIRequestState</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
-                          </div>
                         </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC7isReadySbvp"></a>
-                      <a name="//apple_ref/swift/Property/isReady" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC7isReadySbvp">isReady</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>A Boolean value indicating whether the request can be performed now.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC7isReadySbvp"></a>
+                    <a name="//apple_ref/swift/Property/isReady" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC7isReadySbvp">isReady</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the request can be performed now.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isReady</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isReady</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC11isExecutingSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isExecuting" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC11isExecutingSbvp">isExecuting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the request is currently executing.</p>
 
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC11isExecutingSbvp"></a>
-                      <a name="//apple_ref/swift/Property/isExecuting" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC11isExecutingSbvp">isExecuting</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>A Boolean value indicating whether the request is currently executing.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isExecuting</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC10isFinishedSbvp"></a>
-                      <a name="//apple_ref/swift/Property/isFinished" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC10isFinishedSbvp">isFinished</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>A Boolean value indicating whether the request has finished executing.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isExecuting</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isFinished</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC10isFinishedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isFinished" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC10isFinishedSbvp">isFinished</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether the request has finished executing.</p>
 
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC14isAsynchronousSbvp"></a>
-                      <a name="//apple_ref/swift/Property/isAsynchronous" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC14isAsynchronousSbvp">isAsynchronous</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>A Boolean value indicating the request executes asynchronously.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isAsynchronous</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC8dataTask33_4486BA43D99007C63BCA3765A21B025DLLSo016NSURLSessionDataD0CSgvp"></a>
-                      <a name="//apple_ref/swift/Property/dataTask" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC8dataTask33_4486BA43D99007C63BCA3765A21B025DLLSo016NSURLSessionDataD0CSgvp">dataTask</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The <code>URLSessionDataTask</code> backing the request.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isFinished</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">dataTask</span><span class="p">:</span> <span class="kt">URLSessionDataTask</span><span class="p">?</span></code></pre>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC14isAsynchronousSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isAsynchronous" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC14isAsynchronousSbvp">isAsynchronous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating the request executes asynchronously.</p>
 
-                          </div>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isAsynchronous</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
                         </div>
-                      </section>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="task-group">
-                <div class="task-name-container">
-                  <a name="/Request%20Properties"></a>
-                  <a name="//apple_ref/swift/Section/Request Properties" class="dashAnchor"></a>
-                  <a href="#/Request%20Properties">
-                    <h3 class="section-name">Request Properties</h3>
-                  </a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC8dataTask33_4486BA43D99007C63BCA3765A21B025DLLSo016NSURLSessionDataD0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dataTask" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC8dataTask33_4486BA43D99007C63BCA3765A21B025DLLSo016NSURLSessionDataD0CSgvp">dataTask</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>URLSessionDataTask</code> backing the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">dataTask</span><span class="p">:</span> <span class="kt">URLSessionDataTask</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Request%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Request Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Request%20Properties"></a>
+                  <h3 class="section-name"><p>Request Properties</p>
+</h3>
                 </div>
-                <ul>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC8endpointSSvp"></a>
-                      <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC8endpointSSvp">endpoint</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The endpoint for the request relative to the baseURL of the service.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC6methodAA10HTTPMethodOvp"></a>
-                      <a name="//apple_ref/swift/Property/method" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC6methodAA10HTTPMethodOvp">method</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The http method for the request.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC10parametersSDyS2SGSgvp"></a>
-                      <a name="//apple_ref/swift/Property/parameters" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC10parametersSDyS2SGSgvp">parameters</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The url parameters for the request.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></span><span class="p">?</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC4bodySDySSypGSgvp"></a>
-                      <a name="//apple_ref/swift/Property/body" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC4bodySDySSypGSgvp">body</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The json body for the request.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">body</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a></span><span class="p">?</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC7headersSDyS2SGSgvp"></a>
-                      <a name="//apple_ref/swift/Property/headers" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC7headersSDyS2SGSgvp">headers</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The http headers for the request.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></span><span class="p">?</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC7serviceAA10APIService_pXpvp"></a>
-                      <a name="//apple_ref/swift/Property/service" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC7serviceAA10APIService_pXpvp">service</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The <code><a href="../Protocols/APIService.html">APIService</a></code> the request is part of.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">service</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIService.html">APIService</a></span><span class="o">.</span><span class="k">Type</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC13authorizationAA16APIAuthorization_pSgvp"></a>
-                      <a name="//apple_ref/swift/Property/authorization" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC13authorizationAA16APIAuthorization_pSgvp">authorization</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The object used to authorize the request.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">authorization</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIAuthorization.html">APIAuthorization</a></span><span class="p">?</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC10completionyAA6ResultOyx_SDys11AnyHashableVypGtGcSgvp"></a>
-                      <a name="//apple_ref/swift/Property/completion" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC10completionyAA6ResultOyx_SDys11AnyHashableVypGtGcSgvp">completion</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The callback on a completed request, called with the result.</p>
-
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Enums/Result.html">Result</a></span><span class="o">&lt;</span><span class="p">(</span><span class="kt">ReturnType</span><span class="p">,</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a></span><span class="p">)</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                </ul>
               </div>
-              <div class="task-group">
-                <div class="task-name-container">
-                  <a name="/Private%20API"></a>
-                  <a name="//apple_ref/swift/Section/Private API" class="dashAnchor"></a>
-                  <a href="#/Private%20API">
-                    <h3 class="section-name">Private API</h3>
-                  </a>
-                </div>
-                <ul>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC33keyPathsForValuesAffectingIsReady33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ"></a>
-                      <a name="//apple_ref/swift/Method/keyPathsForValuesAffectingIsReady()" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC33keyPathsForValuesAffectingIsReady33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ">keyPathsForValuesAffectingIsReady()</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Registers the dependent keys for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7isReadySbvp">isReady</a></code>.</p>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC8endpointSSvp"></a>
+                    <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC8endpointSSvp">endpoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The endpoint for the request relative to the baseURL of the service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@objc</span>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC6methodAA10HTTPMethodOvp"></a>
+                    <a name="//apple_ref/swift/Property/method" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC6methodAA10HTTPMethodOvp">method</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The http method for the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC10parametersSDyS2SGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/parameters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC10parametersSDyS2SGSgvp">parameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The url parameters for the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC4bodySDySSypGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/body" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC4bodySDySSypGSgvp">body</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The json body for the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">body</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC7headersSDyS2SGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/headers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC7headersSDyS2SGSgvp">headers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The http headers for the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC7serviceAA10APIService_pXpvp"></a>
+                    <a name="//apple_ref/swift/Property/service" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC7serviceAA10APIService_pXpvp">service</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Protocols/APIService.html">APIService</a></code> the request is part of.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">service</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIService.html">APIService</a></span><span class="o">.</span><span class="k">Type</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC13authorizationAA16APIAuthorization_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/authorization" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC13authorizationAA16APIAuthorization_pSgvp">authorization</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The object used to authorize the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">authorization</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIAuthorization.html">APIAuthorization</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC10completionys6ResultOyx_SDys11AnyHashableVypGts5Error_pGcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/completion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC10completionys6ResultOyx_SDys11AnyHashableVypGts5Error_pGcSgvp">completion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The callback on a completed request, called with the result.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">ReturnType</span><span class="p">,</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a></span><span class="p">),</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Private%20API"></a>
+                <a name="//apple_ref/swift/Section/Private API" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Private%20API"></a>
+                  <h3 class="section-name"><p>Private API</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC33keyPathsForValuesAffectingIsReady33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/keyPathsForValuesAffectingIsReady()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC33keyPathsForValuesAffectingIsReady33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ">keyPathsForValuesAffectingIsReady()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Registers the dependent keys for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC7isReadySbvp">isReady</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
 <span class="kd">private</span> <span class="kd">dynamic</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">keyPathsForValuesAffectingIsReady</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
 
-                          </div>
                         </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC37keyPathsForValuesAffectingIsExecuting33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ"></a>
-                      <a name="//apple_ref/swift/Method/keyPathsForValuesAffectingIsExecuting()" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC37keyPathsForValuesAffectingIsExecuting33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ">keyPathsForValuesAffectingIsExecuting()</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Registers the dependent keys for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC11isExecutingSbvp">isExecuting</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC37keyPathsForValuesAffectingIsExecuting33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/keyPathsForValuesAffectingIsExecuting()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC37keyPathsForValuesAffectingIsExecuting33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ">keyPathsForValuesAffectingIsExecuting()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Registers the dependent keys for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC11isExecutingSbvp">isExecuting</a></code>.</p>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@objc</span>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
 <span class="kd">private</span> <span class="kd">dynamic</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">keyPathsForValuesAffectingIsExecuting</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
 
-                          </div>
                         </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC36keyPathsForValuesAffectingIsFinished33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ"></a>
-                      <a name="//apple_ref/swift/Method/keyPathsForValuesAffectingIsFinished()" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC36keyPathsForValuesAffectingIsFinished33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ">keyPathsForValuesAffectingIsFinished()</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Registers the dependent keys for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC10isFinishedSbvp">isFinished</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC36keyPathsForValuesAffectingIsFinished33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/keyPathsForValuesAffectingIsFinished()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC36keyPathsForValuesAffectingIsFinished33_4486BA43D99007C63BCA3765A21B025DLLShySSGyFZ">keyPathsForValuesAffectingIsFinished()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Registers the dependent keys for <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC10isFinishedSbvp">isFinished</a></code>.</p>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@objc</span>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
 <span class="kd">private</span> <span class="kd">dynamic</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">keyPathsForValuesAffectingIsFinished</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
 
-                          </div>
                         </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC14formURLRequest33_4486BA43D99007C63BCA3765A21B025DLL10Foundation0D0VyKF"></a>
-                      <a name="//apple_ref/swift/Method/formURLRequest()" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC14formURLRequest33_4486BA43D99007C63BCA3765A21B025DLL10Foundation0D0VyKF">formURLRequest()</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Creates a <code>URLRequest</code> representing the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC14formURLRequest33_4486BA43D99007C63BCA3765A21B025DLL10Foundation0D0VyKF"></a>
+                    <a name="//apple_ref/swift/Method/formURLRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC14formURLRequest33_4486BA43D99007C63BCA3765A21B025DLL10Foundation0D0VyKF">formURLRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a <code>URLRequest</code> representing the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">formURLRequest</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">formURLRequest</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC18urlRequestCallback33_4486BA43D99007C63BCA3765A21B025DLL4data8response5errory10Foundation4DataVSg_So13NSURLResponseCSgs5Error_pSgtF"></a>
+                    <a name="//apple_ref/swift/Method/urlRequestCallback(data:response:error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC18urlRequestCallback33_4486BA43D99007C63BCA3765A21B025DLL4data8response5errory10Foundation4DataVSg_So13NSURLResponseCSgs5Error_pSgtF">urlRequestCallback(data:response:error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The completion handler for the <code>URLSessionDataTask</code> backing the request.</p>
 
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC18urlRequestCallback33_4486BA43D99007C63BCA3765A21B025DLL4data8response5errory10Foundation4DataVSg_So13NSURLResponseCSgs5Error_pSgtF"></a>
-                      <a name="//apple_ref/swift/Method/urlRequestCallback(data:response:error:)" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC18urlRequestCallback33_4486BA43D99007C63BCA3765A21B025DLL4data8response5errory10Foundation4DataVSg_So13NSURLResponseCSgs5Error_pSgtF">urlRequestCallback(data:response:error:)</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>The completion handler for the <code>URLSessionDataTask</code> backing the request.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">urlRequestCallback</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?,</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">urlRequestCallback</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?,</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC5startyyF"></a>
-                      <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC5startyyF">start()</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Starts the request, this method should only be called by an
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC5startyyF"></a>
+                    <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC5startyyF">start()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts the request, this method should only be called by an
 <code>OperationQueue</code>. Instead, use <code>launch()</code>, <code><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC6launch2onACyxGSo16NSOperationQueueC_tF">launch(on:)</a></code>, or add this
 object to an <code>OperationQueue</code> to begin the request.</p>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
 
-                          </div>
                         </div>
-                      </section>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="task-group">
-                <div class="task-name-container">
-                  <a name="/Public%20API"></a>
-                  <a name="//apple_ref/swift/Section/Public API" class="dashAnchor"></a>
-                  <a href="#/Public%20API">
-                    <h3 class="section-name">Public API</h3>
-                  </a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20API"></a>
+                <a name="//apple_ref/swift/Section/Public API" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20API"></a>
+                  <h3 class="section-name"><p>Public API</p>
+</h3>
                 </div>
-                <ul>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC7service8endpoint6params4body7headers6methodACyxGAA10APIService_pXp_SSSDyS2SGSgSDySSypGSgAmA10HTTPMethodOtcfc"></a>
-                      <a name="//apple_ref/swift/Method/init(service:endpoint:params:body:headers:method:)" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC7service8endpoint6params4body7headers6methodACyxGAA10APIService_pXp_SSSDyS2SGSgSDySSypGSgAmA10HTTPMethodOtcfc">init(service:endpoint:params:body:headers:method:)</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Creates a new <code>APIRequest</code>.</p>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC7service8endpoint6params4body7headers6methodACyxGAA10APIService_pXp_SSSDyS2SGSgSDySSypGSgAmA10HTTPMethodOtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(service:endpoint:params:body:headers:method:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC7service8endpoint6params4body7headers6methodACyxGAA10APIService_pXp_SSSDyS2SGSgSDySSypGSgAmA10HTTPMethodOtcfc">init(service:endpoint:params:body:headers:method:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code>APIRequest</code>.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     Only to be used by a class that conforms to <code><a href="../Protocols/APIService.html">APIService</a></code>.
 
 </div>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">service</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIService.html">APIService</a></span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">service</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIService.html">APIService</a></span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
             <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
             <span class="nv">params</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">body</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
             <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span><span class="p">)</span></code></pre>
 
-                          </div>
                         </div>
-                        <div>
-                          <h4>Parameters</h4>
-                          <table class="graybox">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>endpoint</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>The api endpoint relative to the baseURL of the service.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>params</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>Optional url parameters for the request.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>body</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>Optional http headers for the request.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>body</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>Optional http headers for the request.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>method</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>The method for the request.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC9authorize4withACyxGAA16APIAuthorization_pSg_tF"></a>
-                      <a name="//apple_ref/swift/Method/authorize(with:)" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC9authorize4withACyxGAA16APIAuthorization_pSg_tF">authorize(with:)</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Sets the authorization for an request.</p>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The api endpoint relative to the baseURL of the service.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>params</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional url parameters for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional http headers for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional http headers for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The method for the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC9authorize4withACyxGAA16APIAuthorization_pSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/authorize(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC9authorize4withACyxGAA16APIAuthorization_pSg_tF">authorize(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the authorization for an request.</p>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">open</span> <span class="kd">func</span> <span class="nf">authorize</span><span class="p">(</span><span class="n">with</span> <span class="nv">authorization</span><span class="p">:</span> <span class="kt"><a href="../Protocols/APIAuthorization.html">APIAuthorization</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
 
-                          </div>
                         </div>
-                        <div>
-                          <h4>Parameters</h4>
-                          <table class="graybox">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>authorization</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>The object used to authorize the request.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div>
-                          <h4>Return Value</h4>
-                          <p><code>self</code> for method chaining as needed.</p>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC12onCompletionyACyxGyAA6ResultOyx_SDys11AnyHashableVypGtGcSgF"></a>
-                      <a name="//apple_ref/swift/Method/onCompletion(_:)" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC12onCompletionyACyxGyAA6ResultOyx_SDys11AnyHashableVypGtGcSgF">onCompletion(_:)</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Sets the callback on a completed request, called with the result.</p>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>authorization</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object used to authorize the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>self</code> for method chaining as needed.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC12onCompletionyACyxGys6ResultOyx_SDys11AnyHashableVypGts5Error_pGcSgF"></a>
+                    <a name="//apple_ref/swift/Method/onCompletion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC12onCompletionyACyxGys6ResultOyx_SDys11AnyHashableVypGts5Error_pGcSgF">onCompletion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the callback on a completed request, called with the result.</p>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">open</span> <span class="kd">func</span> <span class="nf">onCompletion</span><span class="p">(</span><span class="n">_</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt"><a href="../Classes/APIRequest.html#/s:10APIManager10APIRequestC10Completiona">Completion</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
 
-                          </div>
                         </div>
-                        <div>
-                          <h4>Parameters</h4>
-                          <table class="graybox">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>comepletion</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>The block to be called on a completed request.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div>
-                          <h4>Return Value</h4>
-                          <p><code>self</code> for method chaining as needed.</p>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC6launch2onACyxGSo16NSOperationQueueC_tF"></a>
-                      <a name="//apple_ref/swift/Method/launch(on:)" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC6launch2onACyxGSo16NSOperationQueueC_tF">launch(on:)</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Launches the request and calls the completion handler once the finished.</p>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>comepletion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The block to be called on a completed request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>self</code> for method chaining as needed.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC6launch2onACyxGSo16NSOperationQueueC_tF"></a>
+                    <a name="//apple_ref/swift/Method/launch(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC6launch2onACyxGSo16NSOperationQueueC_tF">launch(on:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Launches the request and calls the completion handler once the finished.</p>
 
-                        </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
 <span class="kd">open</span> <span class="kd">func</span> <span class="nf">launch</span><span class="p">(</span><span class="n">on</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">OperationQueue</span> <span class="o">=</span> <span class="o">.</span><span class="n">defaultAPIRequestQueue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">APIRequest</span></code></pre>
 
-                          </div>
                         </div>
-                        <div>
-                          <h4>Parameters</h4>
-                          <table class="graybox">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <code>
-                                  <em>queue</em>
-                                  </code>
-                                </td>
-                                <td>
-                                  <div>
-                                    <p>The OperationQueue to run the request on, will be run the
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The OperationQueue to run the request on, will be run the
 default queue if none is specified.</p>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div>
-                          <h4>Return Value</h4>
-                          <p><code>self</code> for method chaining as needed.</p>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div>
-                      <code>
-                      <a name="/s:10APIManager10APIRequestC6cancelyyF"></a>
-                      <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
-                      <a class="token" href="#/s:10APIManager10APIRequestC6cancelyyF">cancel()</a>
-                      </code>
-                    </div>
-                    <div class="height-container">
-                      <div class="pointer-container"></div>
-                      <section class="section">
-                        <div class="pointer"></div>
-                        <div class="abstract">
-                          <p>Cancels an in-flight request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>self</code> for method chaining as needed.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10APIManager10APIRequestC6cancelyyF"></a>
+                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10APIManager10APIRequestC6cancelyyF">cancel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels an in-flight request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
 
                         </div>
-                        <div class="declaration">
-                          <h4>Declaration</h4>
-                          <div class="language">
-                            <p class="aside-title">Swift</p>
-                            <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
-
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </section>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
-        </article>
-      </div>
-      <div class="nav-wrapper">
-        <nav class="nav-bottom">
-          <ul class="nav-groups">
-            <li class="nav-group-name">
-              <a href="../Classes.html">Classes</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Classes/APIRequest.html">APIRequest</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Enums.html">Enumerations</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Enums/APIRequestError.html">APIRequestError</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Enums/APIRequestState.html">APIRequestState</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Enums/Result.html">Result</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Extensions.html">Extensions</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Extensions/Dictionary.html">Dictionary</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Extensions/OperationQueue.html">OperationQueue</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Protocols.html">Protocols</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Protocols/APIAuthorization.html">APIAuthorization</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Protocols/APIReturnable.html">APIReturnable</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Protocols/APIService.html">APIService</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-group-name">
-              <a href="../Typealiases.html">Type Aliases</a>
-              <ul class="nav-group-tasks">
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager8HTTPBodya">HTTPBody</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager11HTTPCookiesa">HTTPCookies</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager11HTTPHeadersa">HTTPHeaders</a>
-                </li>
-                <li class="nav-group-task">
-                  <a href="../Typealiases.html#/s:10APIManager14HTTPParametersa">HTTPParameters</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer-wrapper">
-        <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/rauhul/api-manager" target="_blank" rel="external">Rauhul Varma</a>. All rights reserved. (Last updated: 2019-01-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
-      </div>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://rauhul.me" target="_blank" rel="external">rauhul</a>. All rights reserved. (Last updated: 2020-01-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
     </div>
   </body>
 </div>

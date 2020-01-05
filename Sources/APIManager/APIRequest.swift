@@ -3,7 +3,7 @@
 //  APIManager
 //
 //  Created by Rauhul Varma on 4/14/18.
-//  Copyright © 2018 Rauhul Varma. All rights reserved.
+//  Copyright © 2020 Rauhul Varma. All rights reserved.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import Foundation
 public extension OperationQueue {
     /// Default `OperationQueue` for running requests. Other queues can be used
     /// via `APIRequest.launch(on:)`.
-    public static let defaultAPIRequestQueue: OperationQueue = {
+    static let defaultAPIRequestQueue: OperationQueue = {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 10
         return queue
@@ -47,7 +47,7 @@ open class APIRequest<ReturnType: APIReturnable>: Operation {
 
     // MARK: - Types & Aliases
     /// Alias for the callback when an request completes.
-    public typealias Completion = (Result<(ReturnType, HTTPCookies)>) -> Void
+    public typealias Completion = (Result<(ReturnType, HTTPCookies), Error>) -> Void
 
     // MARK: - Implemenation Properties
     /// DispatchQueue used to serialize access to `state`.

@@ -3,7 +3,7 @@
 //  APIManager
 //
 //  Created by Rauhul Varma on 10/29/17.
-//  Copyright © 2017 Rauhul Varma. All rights reserved.
+//  Copyright © 2020 Rauhul Varma. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ public protocol APIReturnable {
 public extension APIReturnable where Self: Decodable {
 
     /// Conversion from `Data` to a `Decodable` type using a `JSONDecoder`
-    public init(from data: Data) throws {
+    init(from data: Data) throws {
         self = try JSONDecoder().decode(Self.self, from: data)
     }
 }

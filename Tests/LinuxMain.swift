@@ -1,6 +1,8 @@
 import XCTest
-@testable import APIManagerTests
 
-XCTMain([
-    testCase(APIManagerTests.allTests)
-])
+import APIManagerTests
+
+var tests = [XCTestCaseEntry]()
+tests += APIManagerTests.__allTests()
+
+XCTMain(tests)

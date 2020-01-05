@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.4.0](https://github.com/rauhul/api-manager/releases/tag/0.4.0)
+Released on 2020-1-4.
+
+#### Added
+- Swift 5.0+ support
+
+#### Removed
+- CocoaPods support
+
+
 ## [0.3.0](https://github.com/rauhul/api-manager/releases/tag/0.3.0)
 Released on 2018-1-6.
 
